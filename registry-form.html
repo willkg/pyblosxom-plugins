@@ -1,0 +1,64 @@
+<div class="registry_item">
+<form action="$base_url/registry_submit" method="POST">
+<table>
+<tr><td valign="top"><b>name:</b></td><td valign="top"><input type="text" name="name" value="$name"></td></tr>
+<tr><td valign="top"><b>version:</b></td><td valign="top"><input type="text" name="version" value="$version"></td></tr>
+<tr><td valign="top"><b>author:</b></td><td valign="top"><input type="text" name="author" value="$author"></td></tr>
+
+<tr><td valign="top"><b>category:</b></td><td valign="top"><select name="category">
+<option name="archives">archives</option>
+<option name="authentication">authentication</option>
+<option name="author">author</option>
+<option name="browser">browser</option>
+<option name="calendar">calendar</option>
+<option name="category">category</option>
+
+<option name="date">date</option>
+<option name="debug">debug</option>
+<option name="display">display</option>
+<option name="display/graphics">display/graphics</option>
+<option name="edit">edit</option>
+<option name="files">files</option>
+<option name="filtering">filtering</option>
+<option name="general">general</option>
+<option name="headers">headers</option>
+
+<option name="hosting">hosting</option>
+<option name="images">images</option>
+<option name="include">include</option>
+<option name="indexing">indexing</option>
+<option name="input">input</option>
+<option name="integration">integration</option>
+<option name="interpolate">interpolate</option>
+<option name="link">link</option>
+<option name="link/amazon">link/amazon</option>
+
+<option name="link/google">link/google</option>
+<option name="logs">logs</option>
+<option name="macros">macros</option>
+<option name="meta">meta</option>
+<option name="output">output</option>
+<option name="programming">programming</option>
+<option name="search">search</option>
+<option name="silly">silly</option>
+<option name="sort">sort</option>
+
+<option name="syndication">syndication</option>
+<option name="text">text</option>
+<option name="xmlrpc">xmlrpc</option>
+</select></td></tr>
+
+<tr><td valign="top"><b>maturity:</b></td><td valign="top"><select name="maturity">
+# FIXME how to do this?
+<option name="beta">beta</option>
+<option name="stable">stable</option>
+<option name="mature">mature</option>
+</select></td></tr>
+<tr><td valign="top"><b>description:</b></td><td valign="top"><textarea cols=80 rows=8 name="description">$description</textarea></td></tr>
+
+<tr><td valign="top"><b>url:</b></td><td valign="top"><input type="text" name="url" value="$url"></td></tr>
+<tr><td valign="top"><b>download_url:</b></td><td valign="top"><input type="text" name="download_url" value="$download_url"></td></tr>
+<tr><td>&nbsp;</td><td><input type="submit" value="Submit entry"><input type="reset"></td></tr>
+</table>
+</form>
+</div>
