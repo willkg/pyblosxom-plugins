@@ -37,9 +37,10 @@ Just for clarity sake, Blake wrote the majority of the code, but Will is
 going to take responsibility to maintain the code going forward (unless
 Blake really wants to--doesn't bother Will either way).
 
-CVSVERSION: $Id: rss2renderer.py,v 1.9 2005/10/26 18:24:43 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into new version control system.
 1.9 - (26 October, 2005) pulled into new version control system
 1.8 - (April 11, 2005) Changed instances of roughingit to the new web-site url.
 1.7 - (March 9, 2005) Fixed problems with rss2renderer and conditionalhttp.
@@ -54,7 +55,7 @@ Revisions:
 1.0 - Blake's original writing.
 """
 __author__ = "Blake Winton and Will Guaraldi"
-__version__ = "$Revision: 1.9 $ $Date: 2005/10/26 18:24:43 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "RSS2 renderer."
 

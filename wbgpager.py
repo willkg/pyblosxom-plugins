@@ -74,9 +74,10 @@ SOFTWARE.
 
 Copyright 2004, 2005 Will Guaraldi
 
-CVSVERSION: $Id: wbgpager.py,v 1.7 2005/10/26 18:49:27 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into new VCS.
 1.6 - (26 October, 2005) pulled into new VCS
 1.5 - (26 September 2005) added configurable 1, 2, 3, 4, ... or Page 1 of 23
                           linking methodologies
@@ -89,7 +90,7 @@ Revisions:
 1.0 - (30 April 2004) initial writing
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.7 $ $Date: 2005/10/26 18:49:27 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Allows navigation by page for indexes that have too many entries."
 

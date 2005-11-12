@@ -71,9 +71,10 @@ SOFTWARE.
 
 Copyright 2002, 2003, 2004 Will Guaraldi
 
-CVS VERSION: $Id: pystaticfile.py,v 2.1 2005/10/27 02:22:07 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into another new version control system
 2.0 (26 October, 2005) - pulled into new version control system
 1.9 (22 December, 2004) - Fixed a problem with the code blocks.
 1.8 (07 December, 2004) - Minor fix so that comments work again.
@@ -92,7 +93,7 @@ from Pyblosxom.entries.fileentry import FileEntry
 from Pyblosxom import tools
 
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 2.1 $ $Date: 2005/10/27 02:22:07 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Allows you to do static files as entries."
 

@@ -50,15 +50,16 @@ SOFTWARE.
 
 Copyright 2004 Will Guaraldi
 
-CVSVERSION: $Id: tipsparser.py,v 1.5 2005/10/26 18:41:19 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into new version control system.
 1.5 - (26 October, 2005) pulled into new version control system
 1.1 - (15 February 2004) adjustments to datafile handling
 1.0 - (26 January 2004) initial writing
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.5 $ $Date: 2005/10/26 18:41:19 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Parses .tips files as tips files."
 

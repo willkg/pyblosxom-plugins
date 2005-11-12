@@ -37,9 +37,10 @@ SOFTWARE.
 
 Copyright 2002-2004 Will Guaraldi
 
-CVS VERSION: $Id: plugininfo.py,v 1.8 2005/10/26 18:40:43 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into another new version control system
 1.8 - (26 October, 2005) pulled into new version control system
 1.7 - (09 December, 2004) fixed date_head issue and stopped showing 
       docstrings
@@ -56,7 +57,7 @@ import Pyblosxom.entries.base
 import time, os.path
 
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.8 $ $Date: 2005/10/26 18:40:43 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Shows information about plugins that you're running."
 

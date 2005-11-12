@@ -75,16 +75,17 @@ SOFTWARE.
 
 Copyright 2002, 2003 Will Guaraldi
 
-CVS VERSION: $Id: pyinclude.py,v 1.3 2005/10/26 18:39:38 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into another new version control system.
 1.3 - (26 October, 2005) pulled into new version control system
 1.2 - (14 May, 2004) added handling for relative filenames
 1.1 - (23 April, 2004) added python script evaluation
 1.0 - initial writing
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.3 $ $Date: 2005/10/26 18:39:38 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Allows you to include text files."
 

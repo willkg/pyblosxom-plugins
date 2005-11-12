@@ -26,9 +26,10 @@ adjustments to it.
 NOTE: this plugin doesn't work with the rss2renderer plugin.
 
 
-CVS VERSION: $Id: readmore.py,v 1.5 2005/10/26 18:38:49 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into another new version control system.
 1.5 - (26 October, 2005) pulled into new version control system
 0.5 - (October 25, 2005) Changed the ^L to B R E A K, fixed some instructrions
       and took over hosting.
@@ -38,8 +39,8 @@ Revisions:
 # __author__ = "IWS - iws@iws.dyndns.org"
 
 # CURRENT MAINTAINER
-__author__ = "IWS, maintainer: Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.5 $ $Date: 2005/10/26 18:38:49 $"
+__author__ = "original author: IWS; maintainer: Will Guaraldi - willg at bluesock dot org"
+__version__ = "$Date$"
 __licence__ = "python or GNU"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Breaks a long story at B R E A K (no spaces)."

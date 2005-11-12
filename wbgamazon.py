@@ -16,9 +16,10 @@ template and amazon store are both hardcoded.
 
 This code is placed in the public domain--use it as you so desire.
 
-CVSVERSION: $Id: wbgamazon.py,v 1.4 2005/10/26 18:31:19 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into new VCS.
 1.4 - (26 October, 2005) pulled into new VCS
 1.3 - (August 17, 2004) Fixed the documentation which was wrong and
                         fixed the RSS handling
@@ -27,7 +28,7 @@ Revisions:
 1.0 - (March 31, 2004) created
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.4 $ $Date: 2005/10/26 18:31:19 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Amazon link generator."
 

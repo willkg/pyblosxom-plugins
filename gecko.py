@@ -27,14 +27,15 @@ SOFTWARE.
 
 Copyright 2004 Will Guaraldi
 
-CVSVERSION: $Id: gecko.py,v 1.5 2005/10/27 02:09:41 willg Exp $
+SUBVERSION VERSION $Id$
 
 Revisions:
+2005-11-11 - Pulled into another new version control system.
 1.5 - (26 October, 2005) pulled into new version control system
 1.0 - (08 July, 2004) created
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.5 $ $Date: 2005/10/27 02:09:41 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Displays a notice for people who aren't using Gecko-based browsers."
 

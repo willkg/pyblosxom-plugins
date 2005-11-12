@@ -48,9 +48,10 @@ SOFTWARE.
 
 Copyright 2004 Will Guaraldi
 
-CVSVERSION: $Id: wbgarchives.py,v 1.4 2005/10/26 18:36:55 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into new VCS.
 1.4 - (26 October, 2005) pulled into new VCS
 1.3 - (14 March, 2005) added categories
 1.2 - (09 December, 2004) fixed date_head issue
@@ -59,7 +60,7 @@ Revisions:
 1.0 - (15 August, 2004) initial writing
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.4 $ $Date: 2005/10/26 18:36:55 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Archives handler."
 

@@ -73,9 +73,10 @@ SOFTWARE.
 
 Copyright 2002-2004 Will Guaraldi
 
-CVSVERSION: $Id: registry.py,v 2.2 2005/10/27 02:08:49 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into a new version control system.
 2.2 - (26 October, 2005) pulled into new VCS
 2.1 - (13 December, 2004) fixed date_head template issue
 2.0 - (05 May, 2004) total overhaul--literally
@@ -92,7 +93,7 @@ from Pyblosxom.entries import fileentry, base
 from Pyblosxom import tools
 
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 2.2 $ $Date: 2005/10/27 02:08:49 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Handles editing and display of a tree of data files like entries or whatever."
 

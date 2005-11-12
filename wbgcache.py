@@ -29,10 +29,11 @@ SOFTWARE.
 Copyright 2004 Will Guaraldi
 
 Revisions:
+2005-11-11 - Pulled into new VCS.
 1.0 - (24 April 2004) initial writing
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "1.0 (24 April 2004)"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Caches pages for a day."
 

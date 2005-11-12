@@ -43,9 +43,10 @@ SOFTWARE.
 
 Copyright 2004 Will Guaraldi
 
-CVSVERSION: $Id: wbggrep.py,v 1.5 2005/10/26 18:43:00 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into new VCS.
 1.5 - (26 October, 2005) pulled into new VCS
 1.1 - (09 December, 2004) fixed date_head issue.
 1.0 - (27 May, 2004) Created.
@@ -54,7 +55,7 @@ import os, sys, commands, time, string
 from Pyblosxom.entries import base
 
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.5 $ $Date: 2005/10/26 18:43:00 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Ultra-basic search plugin that uses grep."
 

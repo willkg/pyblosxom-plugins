@@ -80,7 +80,7 @@ SOFTWARE.
 
 Copyright 2002-2004 Will Guaraldi
 
-SUBVERSION VERSION: $Id: booklist.py 4 2005-11-12 01:12:20Z willg $
+SUBVERSION VERSION: $Id$
 
 Revisions:
 2005-11-12 - pulled into another new version control system.
@@ -95,7 +95,7 @@ Revisions:
 1.0 - created
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Date$"
+__version__ = "$Date: 2005-11-11 19:13:40 -0600 (Fri, 11 Nov 2005) $"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Shows information about what books you're reading."
 

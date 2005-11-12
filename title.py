@@ -32,14 +32,15 @@ SOFTWARE.
 
 Copyright 2002-2005 Will Guaraldi
 
-CVSVERSION: $Id: title.py,v 1.3 2005/10/26 18:23:48 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-11 - Pulled into new VCS.
 1.3 - (26 October, 2005) pulled into new VCS
 1.0 - created
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"
-__version__ = "$Revision: 1.3 $ $Date: 2005/10/26 18:23:48 $"
+__version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Creates a $urlencodedtitle variable for Google links."
 
