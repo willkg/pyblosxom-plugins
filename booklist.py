@@ -80,7 +80,7 @@ SOFTWARE.
 
 Copyright 2002-2004 Will Guaraldi
 
-CVS VERSION: $Id: booklist.py,v 1.8 2005/10/26 18:20:44 willg Exp $
+SUBVERSION VERSION: $Id$
 
 Revisions:
 1.8 - (26 October, 2005) pulled into a new version control system
