@@ -52,12 +52,6 @@ print "your datadir is: %s" % config["datadir"]
 %>
 
 
-TODO:
- - need better filename sanitization
- - the title should get adjusted as well--it should be the title of the
-   file entry (in my opinion)
-
-
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without restriction,
@@ -78,11 +72,13 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2002, 2003, 2004 Will Guaraldi
+Copyright 2002-2005 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2005-11-13 - now adjusts the $blog_title_with_path variable to include
+             the static file title
 2005-11-11 - Pulled into another new version control system
 2.0 (26 October, 2005) - pulled into new version control system
 1.9 (22 December, 2004) - Fixed a problem with the code blocks.
@@ -104,7 +100,7 @@ from Pyblosxom import tools
 __author__ = "Will Guaraldi - willg at bluesock dot org"
 __version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
-__description__ = "Allows you to do static files as entries."
+__description__ = "Allows you to include non-blog-entry files in your site."
 
 TRIGGER = "static"
 INIT_KEY = "static_static_file_initiated"
@@ -120,7 +116,6 @@ def verify_installation(req):
         retval = 0
 
     return retval
-
  
 def cb_date_head(args):
     req = args["request"]
