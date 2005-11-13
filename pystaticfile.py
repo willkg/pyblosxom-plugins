@@ -1,4 +1,13 @@
 """
+This plugin is maintained at:
+
+   http://www.bluesock.org/~willg/pyblosxom/
+
+Check that URL for new versions, better documentation, and submitting
+bug reports and feature requests.
+
+----
+
 This plugin allows you to include static files outside of the entry
 system.  Static files should probably be text files, though this plugin
 could be improved to handle php, cgi and all that other non-static file

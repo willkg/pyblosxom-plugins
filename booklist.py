@@ -1,4 +1,13 @@
 """
+This plugin is maintained at:
+
+   http://www.bluesock.org/~willg/pyblosxom/
+
+Check that URL for new versions, better documentation, and submitting
+bug reports and feature requests.
+
+----
+
 I have a books.dat file which is a :: delimited listing of the books I've 
 read or am in the process of reading.  This module takes that listing
 and converts it into a quick thing for display on my web-site.

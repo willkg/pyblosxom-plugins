@@ -1,4 +1,13 @@
 """
+This plugin is maintained at:
+
+   http://www.bluesock.org/~willg/pyblosxom/
+
+Check that URL for new versions, better documentation, and submitting
+bug reports and feature requests.
+
+----
+
 This generates a notice for folks who are not using a Gecko based browser
 that they should switch.
 

@@ -1,4 +1,13 @@
 """
+This plugin is maintained at:
+
+   http://www.bluesock.org/~willg/pyblosxom/
+
+Check that URL for new versions, better documentation, and submitting
+bug reports and feature requests.
+
+----
+
 This plugin allows you to include the contents of a file as a variable.
 This has some utility when reading in the output of a cronjob that pulls
 data down or some other such thing.

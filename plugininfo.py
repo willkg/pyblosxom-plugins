@@ -1,4 +1,13 @@
 """
+This plugin is maintained at:
+
+   http://www.bluesock.org/~willg/pyblosxom/
+
+Check that URL for new versions, better documentation, and submitting
+bug reports and feature requests.
+
+----
+
 This plugin goes through and pulls the __doc__ and other documentation
 from plugins currently installed on your system.  At some point it may
 also go through and pull configuration information.
