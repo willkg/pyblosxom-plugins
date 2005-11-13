@@ -226,6 +226,8 @@ def cb_filelist(args):
     fe["file_path"] = TRIGGER + "/" + page_name
     fe["template_name"] = "static"
 
+    data['blog_title_with_path'] = config.get("blog_title", "") + " : " + fe.get("title_escaped", "")
+
     # set the datadir back
     config["datadir"] = datadir
 
