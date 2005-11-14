@@ -161,8 +161,8 @@ def cb_filelist(args):
     stuff.reverse()
 
     # time stamp and blog entry
-    e = "<tr>\n<td valign=\"top\" align=\"left\">%s</td>\n" \
-        "<td><a href=\"%s/%s\">%s</a><br />%s</td></tr>\n"
+    e = "<tr>\n<td valign=\"top\" align=\"left\">%s:</td>\n" \
+        "<td><a href=\"%s/%s\">%s</a> (%s)<br />%s</td></tr>\n"
 
     entrylist = []
     output = []
@@ -174,6 +174,7 @@ def cb_filelist(args):
                     baseurl, \
                     entry["file_path"], \
                     entry["title"], \
+                    entry["path"], \
                     "".join( [get_comment_text(c) + "<br />" for c in mem[3]]))
         output.append(temp)
 
