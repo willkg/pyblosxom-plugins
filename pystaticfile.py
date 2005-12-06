@@ -181,8 +181,15 @@ def cb_filelist(args):
 
     page_name = pyhttp["PATH_INFO"][len("/" + TRIGGER)+1:]
 
+    if not page_name:
+        return
+
     # FIXME - need to do a better job of sanitizing
     page_name = page_name.replace(os.sep, "/")
+
+    if not page_name:
+        return
+
     if page_name[-1] == os.sep:
         page_name = page_name[:-1]
     if page_name.find("/") > 0:
