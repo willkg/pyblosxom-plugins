@@ -205,7 +205,7 @@ def cb_filelist(args):
     # fake it into loading this file correctly rather than
     # one of the entries.
     newdatadir = staticdir
-    config["datadir"] = newdatadir
+    # config["datadir"] = newdatadir
 
     ext = tools.what_ext(data["extensions"].keys(), staticdir + page_name)
 
@@ -215,6 +215,9 @@ def cb_filelist(args):
     data['root_datadir'] = page_name + '.' + ext
     data['bl_type'] = 'file'
     filename = staticdir + page_name + "." + ext
+
+    if not os.path.isfile(filename):
+        return []
 
     fe = FileEntry(req, filename, staticdir)
     # now we evaluate python code blocks
