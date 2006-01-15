@@ -52,6 +52,13 @@ behavior:
 That should be it!
 
 
+Note: This plugin doesn't work particularly well with static rendering.
+The problem is that it relies on the querystring to figure out which
+page to show and when you're static rendering, only the first page
+is rendered.  This will require a lot of thought to fix.  If you are
+someone who is passionate about fixing this issue, let me know.
+
+
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without restriction,
@@ -72,11 +79,14 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004, 2005 Will Guaraldi
+Copyright 2004, 2005, 2006 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2006-01-15 - Fixed problems with static rendering, added a note about how
+             wbgpager sucks with static rendering, and also added a
+             verify_installation section to check that num_entries is set.
 2005-11-11 - Pulled into new VCS.
 1.6 - (26 October, 2005) pulled into new VCS
 1.5 - (26 September 2005) added configurable 1, 2, 3, 4, ... or Page 1 of 23
@@ -93,6 +103,18 @@ __author__ = "Will Guaraldi - willg at bluesock dot org"
 __version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Allows navigation by page for indexes that have too many entries."
+
+def verify_installation(request):
+    config = request.getConfiguration()
+    if config.get("num_entries", 0) == 0:
+        print "missing config property 'num_entries'.  wbgpager won't do "
+        print "anything without num_entries set.  either set num_entries "
+        print "to a positive integer, or disable the wbgpager plugin."
+        print "see the documentation at the top of the wbgpager plugin "
+        print "code file for more details."
+        return 0
+
+    return 1
 
 class PageDisplay:
     def __init__(self, url, current_page, max_pages, count_from, previous, next, linkstyle):
@@ -135,9 +157,10 @@ def cb_start(args):
     # we do a quick slight of hand here so that PyBlosxom doesn't
     # go and cut down the list of entries before we get a chance
     # to.
-    ne = config.get("num_entries", 0)
-    config["wbgpager_num_entries"] = ne
-    config["num_entries"] = 0
+    if not config.has_key("wbgpager_num_entries"):
+        ne = config.get("num_entries", 0)
+        config["wbgpager_num_entries"] = ne
+        config["num_entries"] = 0
 
 def cb_prepare(args):
     request = args["request"]
@@ -155,7 +178,7 @@ def cb_prepare(args):
     max = config.get("wbgpager_num_entries", 20)
     count_from = config.get("wbgpager_count_from", 0)
 
-    if len(entry_list) > max:
+    if max > 0 and isinstance(entry_list, list) and len(entry_list) > max:
         # this is the old way we got the form (PyBlosxom 1.1 and before)
         form = http.get("form", None)
 
@@ -194,5 +217,6 @@ def cb_prepare(args):
         data["entry_list"] = entry_list[begin:end]
 
         data["page_navigation"] = PageDisplay(url, page, maxpages, count_from, previous, next, linkstyle)
+
     else:
         data["page_navigation"] = ""
