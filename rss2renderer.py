@@ -1,6 +1,6 @@
 """
 The rss2renderer is a renderer that will render your blog in RSS2
-format.  This allows you to have RSS2 syndication WITHOUT writing
+format.  This allows you to have RSS2 syndication without writing
 flavour templates for RSS2.
 
 The following are required properties in your config.py file:
@@ -40,6 +40,8 @@ Blake really wants to--doesn't bother Will either way).
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2006-01-19 - Minor adjustments to the documentation, added a note, and
+             I'm no longer actively maintaining this plugin.
 2005-11-11 - Pulled into new version control system.
 1.9 - (26 October, 2005) pulled into new version control system
 1.8 - (April 11, 2005) Changed instances of roughingit to the new web-site url.
