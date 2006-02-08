@@ -79,12 +79,11 @@ def cb_comment_reject(args):
 
     config = r.getConfiguration()
 
-    reject = 0
     badwords = config.get("comment_rejected_words", [])
     for mem in c.values():
+        mem = mem.lower()
         for word in badwords:
             if mem.find(word) != -1:
-                reject = 1
-                break
+                return 1
 
-    return reject
+    return 0
