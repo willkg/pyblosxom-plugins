@@ -23,7 +23,14 @@ more complete thoughts on it.  (shrug)
 
 config variables:
 
-   amazon_store - the amazon store for building the urls
+   booklist_buy_link
+     The html for buying an item (if there's a valid isbn number).
+
+     example: <a href="http://www.amazon.com/exec/obidos/ASIN/%(isbn)s/bluesockorg-20">Buy at Amazon</a>
+
+     available variables:
+
+        - isbn - %(isbn)
 
 
 It creates the variable $booklist for your main page.  It will list
@@ -40,7 +47,7 @@ render each booklist entry.  My booklist.html file looks like this:
 </p>
 <p>
    <u>$title</u>, by $author<br />
-   ISBN: $isbn <font size=-1><a href="$amazon_link">Buy at Amazon</a></font><br />
+   ISBN: $isbn $buy_link<br />
    <br />
    Started reading: $start_date ($completeness)<br />
    Comments: $comments<br />
@@ -55,13 +62,12 @@ The variable available to booklist entries are as follows:
    $comments - your comments
    $start_date - the date that you started reading the book
    $completeness - the amount of the book you've completed
+   $buy_link - the link to buy the item
 
 And then there are some composite variables available:
 
    $img_isbn - a url composed of the isbn number which points to
                amazon's site for the mini-image
-   $amazon_link - a link created by the isbn number and the amazon
-               store variable you specified in the config file
 
 
 Hope that helps.
@@ -122,9 +128,9 @@ from Pyblosxom import tools, entries
 
 def verify_installation(request):
     config = request.getConfiguration()
-    if not config.has_key("amazon_store"):
-        print "Note: you can set 'amazon_store' in your config.py file which "
-        print "adds the store to the url."
+    if not config.has_key("buy_link"):
+        print "Note: you can set 'buy_link' in your config.py file which "
+        print "adds 'buy this now' style links to the entries."
 
     return 1
 
@@ -188,7 +194,7 @@ def cb_prepare(args):
 
     data["booklist"] = Booklist(request)
 
-def generate_entry(request, book, amazon_store):
+def generate_entry(request, book, buy_link):
     """
     Takes a bunch of variables and generates an entry out of it.  It creates
     a timestamp so that conditionalhttp can handle it without getting
@@ -210,18 +216,20 @@ def generate_entry(request, book, amazon_store):
     entry['start_date'] = book[START_DATE]
     entry['completeness'] = book[COMPLETENESS]
     entry['comments'] = book[COMMENTS]
-    entry['amazon_store'] = amazon_store
+
+    if book[ISBN] == "none":
+        book[ISBN] = ""
 
     # not sure how to do this better....
     if book[ISBN]:
-       entry['img_isbn'] = 'http://images.amazon.com/images/P/' + book[ISBN] + '.01.TZZZZZZZ.jpg'
+        entry['img_isbn'] = 'http://images.amazon.com/images/P/' + book[ISBN] + '.01.TZZZZZZZ.jpg'
     else:
-       entry['img_isbn'] = ''
+        entry['img_isbn'] = ''
 
-    if book[ISBN] and amazon_store:
-       entry['amazon_link'] = 'http://www.amazon.com/exec/obidos/ASIN/%s/%s' % (book[ISBN], amazon_store)
+    if book[ISBN] and buy_link:
+        entry['buy_link'] = buy_link % ({ "isbn": book[ISBN] })
     else:
-       entry['amazon_link'] = ''
+        entry['buy_link'] = ''
 
     entry["template_name"] = "booklist"
 
@@ -264,14 +272,11 @@ def cb_filelist(args):
     booklist = populate_list(request)[:]
     booklist.sort(lambda x,y:cmp(x[1], y[1]))
 
-    if config.has_key("amazon_store"):
-        amazon_store = config["amazon_store"]
-    else:
-        amazon_store = ""
+    buy_link = config.get("booklist_buy_link", "")
 
     entrylist = []
     for mem in booklist:
         mem[ISBN] = mem[ISBN].strip()
-        entrylist.append(generate_entry(request, mem, amazon_store))
+        entrylist.append(generate_entry(request, mem, buy_link))
 
     return entrylist
