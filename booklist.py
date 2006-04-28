@@ -24,13 +24,14 @@ more complete thoughts on it.  (shrug)
 config variables:
 
    booklist_buy_link
-     The html for buying an item (if there's a valid isbn number).
 
-     example: <a href="http://www.amazon.com/exec/obidos/ASIN/%(isbn)s/bluesockorg-20">Buy at Amazon</a>
+   The html for buying an item (if there's a valid isbn number).
 
-     available variables:
+   example: <a href="http://www.amazon.com/exec/obidos/ASIN/%(isbn)s/bluesockorg-20">Buy at Amazon</a>
 
-        - isbn - %(isbn)
+   available variables:
+
+      - isbn - %(isbn)
 
 
 It creates the variable $booklist for your main page.  It will list

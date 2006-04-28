@@ -20,6 +20,16 @@ The comment_rejected_words property takes a list of strings as a
 value.
 
 
+Additionally, the wbgcomments_blacklist plugin can log when it
+blacklisted a comment and what word was used to blacklist it.
+Sometimes this information is interesting.  1 if "yes, I want
+to log" and 0 (default) if "no, i don't want to log".
+
+%<---------------------------------------------------
+py["comment_rejected_words_log"] = 1
+%<---------------------------------------------------
+
+
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without restriction,
@@ -49,6 +59,9 @@ Revisions:
 1.5 - (26 October, 2005) pulled into new VCS
 1.0 - (11 April, 2005) first release
 """
+
+import time, os.path
+
 __author__ = "Will Guaraldi - willg at bluesock dot org"
 __version__ = "$Date$"
 __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
@@ -84,6 +97,12 @@ def cb_comment_reject(args):
         mem = mem.lower()
         for word in badwords:
             if mem.find(word) != -1:
+                if config.get("comment_rejected_words_log", 0):
+                    if config.has_key("logdir"):
+                        fn = os.path.join(config["logdir"], "blacklist.log")
+                        f = open(fn, "a")
+                        f.write("%s: %s\n" % (time.ctime(time.time()), word))
+                        f.close()
                 return 1
 
     return 0
