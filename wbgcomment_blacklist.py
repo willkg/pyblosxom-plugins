@@ -103,6 +103,6 @@ def cb_comment_reject(args):
                         f = open(fn, "a")
                         f.write("%s: %s\n" % (time.ctime(time.time()), word))
                         f.close()
-                return 1
+                return (1, "Comment rejected: contains blacklisted words.")
 
     return 0

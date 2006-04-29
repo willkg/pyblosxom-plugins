@@ -80,6 +80,6 @@ def cb_comment_reject(args):
                 f = open(fn, "a")
                 f.write("%s\n" % time.ctime(time.time()))
                 f.close()
-        return 1
+        return (1, "Comment rejected: I don't think you're human.")
 
     return 0
