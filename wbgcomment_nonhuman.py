@@ -10,12 +10,21 @@ way of catching some of the comment spam they're getting.
 For setup, copy the plugin to your plugins directory and add it to
 your load_plugins list in your config.py file.
 
-Then add the following to your comment-form template just above
-the submit button:
+Then add the following item to your config.py (this defaults to
+"iamhuman"):
 
-%<------------------------------------
+%<---------------------------------------------------
+py["comment_rejected_nonhuman_name"] = "iamhuman"
+%<---------------------------------------------------
+
+
+Then add the following to your comment-form template just above
+the submit button (make sure to match the input name to your
+configured input name):
+
+%<---------------------------------------------------
 <input type="checkbox" name="iamhuman" value="yes"> Yes, I am human!
-%<------------------------------------
+%<---------------------------------------------------
 
 Additionally, the wbgcomments_nonhuman plugin can log when it
 rejected a comment.  This is good for statistical purposes.
@@ -73,7 +82,7 @@ def cb_comment_reject(args):
 
     config = r.getConfiguration()
 
-    if not c.has_key("iamhuman"):
+    if not c.has_key(config.get("comment_rejected_nonhuman_name", "iamhuman")):
         if config.get("comment_rejected_nonhuman_log", 0):
             if config.has_key("logdir"):
                 fn = os.path.join(config["logdir"], "nothuman.log")
