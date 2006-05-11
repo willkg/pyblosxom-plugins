@@ -14,7 +14,7 @@ Then add the following item to your config.py (this defaults to
 "iamhuman"):
 
 %<---------------------------------------------------
-py["comment_rejected_nonhuman_name"] = "iamhuman"
+py["nonhuman_name"] = "iamhuman"
 %<---------------------------------------------------
 
 
@@ -26,13 +26,21 @@ configured input name):
 <input type="checkbox" name="iamhuman" value="yes"> Yes, I am human!
 %<---------------------------------------------------
 
+
+If you set the nonhuman_name property, then you can do this:
+
+%<---------------------------------------------------
+<input type="checkbox" name="$nonhuman_name" value="yes"> Yes, I am human!
+%<---------------------------------------------------
+
+
 Additionally, the wbgcomments_nonhuman plugin can log when it
 rejected a comment.  This is good for statistical purposes.
 1 if "yes, I want to log" and 0 (default) if "no, i don't want 
 to log".
 
 %<---------------------------------------------------
-py["comment_rejected_nonhuman_log"] = 1
+py["nonhuman_log"] = 1
 %<---------------------------------------------------
 
 And that's it!
@@ -82,8 +90,8 @@ def cb_comment_reject(args):
 
     config = r.getConfiguration()
 
-    if not c.has_key(config.get("comment_rejected_nonhuman_name", "iamhuman")):
-        if config.get("comment_rejected_nonhuman_log", 0):
+    if not c.has_key(config.get("nonhuman_name", "iamhuman")):
+        if config.get("nonhuman_log", 0):
             if config.has_key("logdir"):
                 fn = os.path.join(config["logdir"], "nothuman.log")
                 f = open(fn, "a")
