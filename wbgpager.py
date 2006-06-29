@@ -210,7 +210,7 @@ def cb_prepare(args):
             if len(query) == 0:
                 url = url + "?" + "page="
             else:
-                url = url + "?" + "&".join(query) + "&page="
+                url = url + "?" + "&amp;".join(query) + "&amp;page="
         else:
             url = url + "?page="
 
