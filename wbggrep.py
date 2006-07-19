@@ -61,6 +61,7 @@ __description__ = "Ultra-basic search plugin that uses grep."
 
 TRIGGER = "/search"
 INIT_KEY = "search_initiated"
+GREP_CMD_LINE = "/bin/egrep -ir -m 1 \"%s\" %s"
 
 def prepare_text(text):
     text = text.replace(">", "&gt;").replace("<", "&lt;")
@@ -82,7 +83,7 @@ def search(baseurl, datadir, extensions, flavour, s):
 
     output.append("<p><b>searching for '%s':</b></p>" % s2)
 
-    grep = commands.getstatusoutput("/bin/egrep -ir -m 1 \"%s\" %s" % (s2, datadir))
+    grep = commands.getstatusoutput(GREP_CMD_LINE % (s2, datadir))
 
     grep = grep[1]
     if not grep or grep.find("No such file or directory") != -1:
