@@ -17,15 +17,20 @@ It looks for urls like::
 
    /static/blah
 
-and pulls up the file "blah" which is located in the path specified in
-the config file as "staticdir".  If no staticdir is specified, then we
+and pulls up the file "blah.txt" [1] which is located in the path specified
+in the config file as "staticdir".  If no staticdir is specified, then we
 use the datadir.
 
 If the file is not there, it kicks up a 404.
 
-It formats the page using the static flavour template.  So you need
-to add a "static.html" file to your datadir (assuming you're using
-the "html" flavour).  This is just like your story flavour template.
+[1] The file ending (the ".txt" part) can be any file ending that's valid
+    for entries on your blog.  For example, if you have the textile
+    entryparser installed, then ".txtl" is also a valid file ending.
+
+pystaticfile formats the page using the static flavour template.
+So you need to add a "static.html" file to your datadir (assuming
+you're using the "html" flavour).  I tend to copy my story flavour
+templates over and remove the date/time-related bits.
 
 pystaticfile handles evaluating python code blocks.  Enclose python
 code in <% and %> .  The assumption is that only you can edit your 
@@ -77,6 +82,7 @@ Copyright 2002-2005 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2006-10-01 - adjustments to the documentation at the top.
 2005-11-13 - now adjusts the $blog_title_with_path variable to include
              the static file title
 2005-11-11 - Pulled into another new version control system
