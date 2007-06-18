@@ -37,7 +37,7 @@ def cb_renderer(args):
 
     q = pyhttp["QUERY_STRING"].lower()
     if q.find("debug=yes") >= 0:
-        return tools.importName("Pyblosxom.renderers", "debug").Renderer(request, config.get("stdoutput", sys.stdout))
+        return tools.importname("Pyblosxom.renderers", "debug").Renderer(request, config.get("stdoutput", sys.stdout))
     return None
 
 # vim: tabstop=4 shiftwidth=4

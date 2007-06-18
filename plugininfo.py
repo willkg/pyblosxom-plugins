@@ -87,31 +87,25 @@ def verify_installation(request):
     return 1
 
 def build_entry(request, mem):
-    docstring = getattr(mem, "__doc__")
-    if not docstring:
-        docstring = "No documentation for this plugin."
-
-    docstring = docstring.replace("<", "&lt;")
-    docstring = docstring.replace(">", "&gt;")
 
     plugindata = []
     plugindata.append("<pre>")
-    if hasattr(mem, "__author__"):
-        plugindata.append("AUTHOR: " + str(mem.__author__) + "\n")
-    if hasattr(mem, "__version__"):
-        plugindata.append("VERSION: " + str(mem.__version__) + "\n")
+    plugindata.append("AUTHOR: " + str(getattr(mem, "__author__")) + "\n")
+    plugindata.append("VERSION: " + str(getattr(mem, "__version__")) + "\n")
     if hasattr(mem, "__url__"):
-        plugindata.append("URL: <a href=\"%s\">%s</a>\n" % (str(mem.__url__), str(mem.__url__)))
+        plugindata.append("URL: <a href=\"%s\">%s</a>\n" % (str(mem.__url__), 
+                                                            str(mem.__url__)))
 
-    # plugindata.append(docstring)
     plugindata.append("</pre>")
 
-    entry = Pyblosxom.entries.base.generate_entry(request, 
-                    { "title": mem.__name__,
-                      "absolute_path": TRIGGER[1:],
-                      "fn": mem.__name__,
-                      "file_path": TRIGGER[1:] + "/" + mem.__name__ },
-                    "".join(plugindata), None)
+    d = { "title": mem.__name__,
+          "absolute_path": TRIGGER[1:],
+          "fn": mem.__name__,
+          "file_path": TRIGGER[1:] + "/" + mem.__name__ }
+
+    body = "".join(plugindata)
+
+    entry = Pyblosxom.entries.base.generate_entry(request, d, body, None)
     return entry
 
 def cb_prepare(args):
