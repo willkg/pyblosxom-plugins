@@ -8,11 +8,8 @@ bug reports and feature requests.
 
 ----
 
-This plugin goes through and pulls the __doc__ and other documentation
-from plugins currently installed on your system.  At some point it may
-also go through and pull configuration information.
-
-And some day it might do my laundry.
+This plugin goes through all the plugins you have installed on your blog
+and extracts information about the plugin.
 
 To kick it off, the url starts with /plugin_info .
 
@@ -23,6 +20,8 @@ list them in the "plugininfo_hide" property of your config.py file:
 
 It takes a list of strings.
 
+
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -44,11 +43,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2002-2004 Will Guaraldi
+Copyright 2002-2007 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-05-19 - Brushed up the code, fixed documentation, ...
 2005-11-11 - Pulled into another new version control system
 1.8 - (26 October, 2005) pulled into new version control system
 1.7 - (09 December, 2004) fixed date_head issue and stopped showing 
@@ -63,46 +63,74 @@ Revisions:
 """
 import Pyblosxom.plugin_utils
 import Pyblosxom.entries.base
-import time, os.path
+import time
+import os.path
 
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__  = "Will Guaraldi - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__     = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Shows information about plugins that you're running."
 
 TRIGGER = "/plugin_info"
 
 def verify_installation(request):
     config = request.getConfiguration()
+
+    # check to see if the user has specified the "plugininfo_hide" 
+    # property
     if not config.has_key("plugininfo_hide"):
-        print "Note: You can set 'plugininfo_hide' to hide plugins you don't want showing up."
+        # the user doesn't have the property set, so we let them know
+        # they can set it and it prevents specified plugins from showing
+        # up.
+        print "Note: You can set 'plugininfo_hide' to hide plugins you " + \
+              "don't want showing up."
+
     else:
-        if not type(config["plugininfo_hide"]) == type([]):
+        # they do have plugininfo_hide set, so we verify that the value
+        # is valid-ish.
+        val = config["plugininfo_hide"]
+
+        if not type(val) in [ list, tuple ]:
             print "'plugininfo_hide' must be a list of strings."
             return 0
-        for mem in config["plugininfo_hide"]:
-            if not type(mem) == type(""):
+
+        for mem in val:
+            if not type(mem) == str:
                 print "'plugininfo_hide' must be a list of strings."
                 return 0
     return 1
 
 def build_entry(request, mem):
+    """build_entry(Request, plugin) -> PyBlosxom.entries.base.BaseEntry
 
+    Takes a plugin, extracts information from it, and builds a PyBlosxom
+    entry from the results.  It returns the BaseEntry object.
+    """
     plugindata = []
     plugindata.append("<pre>")
+
+    # previously we pulled __doc__, but more and more people are storing
+    # documentation for the plugin as well as license information--which
+    # isn't really what we want to show.  we really want the author, version,
+    # and url for the plugin.  currently these are stored in __author__,
+    # __version__, and __url__ (though those should be changed to something
+    # like VERSION, AUTHOR, and URL so as to avoid confusion with Python
+    # special things.
     plugindata.append("AUTHOR: " + str(getattr(mem, "__author__")) + "\n")
     plugindata.append("VERSION: " + str(getattr(mem, "__version__")) + "\n")
     if hasattr(mem, "__url__"):
-        plugindata.append("URL: <a href=\"%s\">%s</a>\n" % (str(mem.__url__), 
-                                                            str(mem.__url__)))
+        plugindata.append("URL: <a href=\"%s\">%s</a>\n" % \
+                          (str(mem.__url__), str(mem.__url__)))
 
     plugindata.append("</pre>")
 
+    # build a dict of the metadata that generate_entry needs
     d = { "title": mem.__name__,
           "absolute_path": TRIGGER[1:],
           "fn": mem.__name__,
           "file_path": TRIGGER[1:] + "/" + mem.__name__ }
 
+    # build the body of the entry
     body = "".join(plugindata)
 
     entry = Pyblosxom.entries.base.generate_entry(request, d, body, None)
@@ -119,9 +147,14 @@ def cb_prepare(args):
 
     data["plugincount"] = len(plugins)
 
+
 INIT_KEY = "plugininfo_initiated"
 
 def cb_date_head(args):
+    """
+    If we're showing plugins, then we don't want the date_head templates
+    kicking in--so we block that.
+    """
     request = args["request"]
     data = request.getData()
 
@@ -130,6 +163,10 @@ def cb_date_head(args):
     return args
 
 def cb_staticrender_filelist(args):
+    """
+    This is test code--trying to work additional bits into the static
+    renderer.
+    """
     request = args["request"]
     filelist = args["filelist"]
     flavours = args["flavours"]
@@ -171,12 +208,19 @@ def cb_filelist(args):
 
     pathinfo = pyhttp["PATH_INFO"]
 
+    # if the browser requested the TRIGGER or TRiGGER/index, then we
+    # kick in and show plugin information for all plugins.
     if pathinfo == TRIGGER or pathinfo.startswith(TRIGGER + "/index"):
         plugins.sort(lambda x,y: cmp(x.__name__, y.__name__))
         for mem in plugins:
             entry_list.append(build_entry(request, mem))
         return entry_list
 
+    # the browser requested to see information on a specific plugin.
+
+    # we need to pull off the flavour that was requested
+    # (if there was one).  FIXME - this is a good candidate for a tools
+    # function.
     pathinfo = pathinfo[len(TRIGGER):]
 
     if pathinfo.startswith("/"): pathinfo = pathinfo[1:]
@@ -190,9 +234,14 @@ def cb_filelist(args):
     for mem in plugins:
         d[mem.__name__] = mem
 
+    # if the browser requested to look at a specific plugin, then
+    # we only show that one.
     if d.has_key(filename):
         return [build_entry(request, d[filename])]
 
+    # if the plugin the browser requested isn't in the list of
+    # plugins, then we return an empty list of entries--PyBlosxom
+    # will show a "that doesn't exist" message for that.
     return []
 
 # vim: tabstop=4 shiftwidth=4
