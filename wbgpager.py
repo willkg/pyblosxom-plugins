@@ -200,7 +200,7 @@ def cb_prepare(args):
 
         maxpages = ((len(entry_list) - 1) / max) + 1 + count_from
 
-        url = http["REQUEST_URI"]
+        url = http.get("REQUEST_URI", http.get("HTTP_REQUEST_URI", ""))
         if url.find("?") != -1:
             query = url[url.find("?")+1:]
             url = url[:url.find("?")]
