@@ -82,7 +82,7 @@ remove the date/time-related bits.
 
 wbgwiki also handles evaluating python code blocks.  Enclose python
 code in <% and %> .  The assumption is that only you can edit your 
-static files, so there are no restrictions (security or otherwise).
+wiki files, so there are no restrictions (security or otherwise).
 
 For example:
 
@@ -310,7 +310,7 @@ def cb_filelist(args):
         page_name = page_name[:-1]
 
     # if the page has a flavour, we use that.  otherwise
-    # we default to the static flavour
+    # we default to the wiki flavour
     page_name, flavour = os.path.splitext(page_name)
     if flavour:
         data["flavour"] = flavour[1:]
@@ -359,7 +359,7 @@ def cb_filelist(args):
     fe["absolute_path"] = TRIGGER
     fe["fn"] = page_name
     fe["file_path"] = TRIGGER + "/" + page_name
-    fe["template_name"] = "static"
+    fe["template_name"] = "wiki"
 
     data['blog_title_with_path'] = "%s : %s" % \
                    (config.get("blog_title", ""), fe.get("title_escaped", ""))
