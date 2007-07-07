@@ -1,78 +1,87 @@
 """
-This plugin is maintained at:
+Summary
+=======
+
+This plugin is maintained at::
 
    http://www.bluesock.org/~willg/pyblosxom/
 
 Check that URL for new versions, better documentation, and submitting
 bug reports and feature requests.
 
-----
 
-I have a books.dat file which is a :: delimited listing of the books I've 
-read or am in the process of reading.  This module takes that listing
+Usage
+=====
+
+I have a books.dat file which is a ``::`` delimited listing of the books 
+I've read or am in the process of reading.  This module takes that listing
 and converts it into a quick thing for display on my web-site.
 
-Each line in the file is in the form:
+Each line in the file is in the form::
 
-START_DATE::COMPLETENESS::NAME::ISBN::AUTHOR::COMMENTS
+   START_DATE::COMPLETENESS::NAME::ISBN::AUTHOR::COMMENTS
+
 
 It's not really designed to keep track of all the books you read, but
 rather to keep track of the books on your reading table.  Then maybe
 you could write up an entry for when you finished the book with your
 more complete thoughts on it.  (shrug)
 
-config variables:
 
-   booklist_buy_link
+Config variables
+================
 
-   The html for buying an item (if there's a valid isbn number).
+* ``booklist_buy_link`` - The html for the link to buy the item (if there's
+  a valid isbn number).
 
-   example: <a href="http://www.amazon.com/exec/obidos/ASIN/%(isbn)s/bluesockorg-20">Buy at Amazon</a>
+  Example::
 
-   available variables:
+     py["booklist_buy_link"] = r'<a href="http://www.amazon.com/exec/obidos/ASIN/%(isbn)s/bluesockorg-20">Buy at Amazon</a>'
 
-      - isbn - %(isbn)
+  Available variables you can use:
+
+  * isbn - ``%(isbn)s``
 
 
-It creates the variable $booklist for your main page.  It will list
-the top five books (sorted by completeness--i.e. how much of the book
+The plugin creates the variable ``$booklist`` for your main page.  It will 
+list the top five books (sorted by completeness--i.e. how much of the book
 you've completed [I use % like 50%, 60%, done...]).  Then it'll have
-a "more..." link which will link to a complete listing of all the books
-stored ("/booklist/").  The listing of books uses your regular flavour 
-taste (html, rss, whatever...).  It uses the "booklist" template to 
-render each booklist entry.  My booklist.html file looks like this:
+a ``more...`` link which will link to a complete listing of all the books
+stored (``/booklist/``).  The listing of books uses your regular flavour 
+taste (html, rss, whatever...).  It uses the ``booklist`` template to 
+render each booklist entry.  My booklist.html file looks like this::
 
-%<-------------------------- booklist.html -------------
-<p>
-   <img src="$img_isbn">
-</p>
-<p>
-   <u>$title</u>, by $author<br />
-   ISBN: $isbn $buy_link<br />
-   <br />
-   Started reading: $start_date ($completeness)<br />
-   Comments: $comments<br />
-</p>
-%<------------------- end of booklist.html -------------
+   <p>
+      <img src="$img_isbn">
+   </p>
+   <p>
+      <u>$title</u>, by $author<br />
+      ISBN: $isbn $buy_link<br />
+      <br />
+      Started reading: $start_date ($completeness)<br />
+      Comments: $comments<br />
+   </p>
+
 
 The variable available to booklist entries are as follows:
 
-   $title - the title of the book
-   $author - the author of the book
-   $isbn - the isbn number
-   $comments - your comments
-   $start_date - the date that you started reading the book
-   $completeness - the amount of the book you've completed
-   $buy_link - the link to buy the item
+* ``$title`` - the title of the book
+* ``$author`` - the author of the book
+* ``$isbn`` - the isbn number
+* ``$comments`` - your comments
+* ``$start_date`` - the date that you started reading the book
+* ``$completeness`` - the amount of the book you've completed
+* ``$buy_link`` - the link to buy the item
 
 And then there are some composite variables available:
 
-   $img_isbn - a url composed of the isbn number which points to
-               amazon's site for the mini-image
+* ``$img_isbn`` - a url composed of the isbn number which points to 
+  amazon's site for the mini-image
 
 
 Hope that helps.
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -99,6 +108,7 @@ Copyright 2002-2004 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-12 - pulled into another new version control system.
 1.8 - (26 October, 2005) pulled into a new version control system
 1.7 - (09 December, 2004) fixed date_head issue
