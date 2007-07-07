@@ -72,37 +72,54 @@ work::
    </p>
 
 
-Output
-======
+Templates
+=========
 
-wbgwiki formats the page using the "wiki" flavour template.  So you need 
-to add a "wiki.html" file to your datadir (assuming you're using the 
-"html" flavour).  I tend to copy my story flavour templates over and 
-remove the date/time-related bits.
+wbgwiki formats the page using the "wiki" template.  If you were using
+an "html" flavour, then you'd need to create a "wiki.html" template.
+The location of this template depends on how you have flavours set up
+on your blog.  If you have your flavours in a specified flavourdir
+then you can simply create the "wiki.<flavourname>" template in the
+flavour in the flavourdir.
+
+I tend to copy my story flavour templates over and remove the 
+date/time-related bits.
+
+If you don't have a "wiki" template, then it'll default to using the
+"story" template.
+
+
+
+Python code blocks
+==================
 
 wbgwiki also handles evaluating python code blocks.  Enclose python
 code in <% and %> .  The assumption is that only you can edit your 
 wiki files, so there are no restrictions (security or otherwise).
 
-For example:
+For example::
 
-<%
-print "testing"
-%>
+   <%
+   print "testing"
+   %>
 
-<%
-x = { "apple": 5, "banana": 6, "pear": 4 }
-for mem in x.keys():
-   print "<li>%s - %s</li>" % (mem, x[mem])
-%>
+
+and::
+
+   <%
+   x = { "apple": 5, "banana": 6, "pear": 4 }
+   for mem in x.keys():
+      print "<li>%s - %s</li>" % (mem, x[mem])
+   %>
+
 
 The request object is available in python code blocks.  Reference it
-by "request".  ex:
+by "request".  Example::
 
-<%
-config = request.getConfiguration()
-print "your datadir is: %s" % config["datadir"]
-%>
+   <%
+   config = request.getConfiguration()
+   print "your datadir is: %s" % config["datadir"]
+   %>
 
 ----
 
