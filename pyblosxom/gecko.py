@@ -1,4 +1,7 @@
 """
+Summary
+=======
+
 This plugin is maintained at:
 
    http://www.bluesock.org/~willg/pyblosxom/
@@ -6,13 +9,16 @@ This plugin is maintained at:
 Check that URL for new versions, better documentation, and submitting
 bug reports and feature requests.
 
-----
+
+Usage
+=====
 
 This generates a notice for folks who are not using a Gecko based browser
 that they should switch.
 
 The notice will be stored in $gecko_notice .
 
+----
 
 This plugin is placed in the Public Domain.  Do with it as you will.
 
