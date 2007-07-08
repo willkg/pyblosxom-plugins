@@ -60,13 +60,15 @@ def execute(hdf, args, env):
         if row == None:
             break
 
-        buf.write('<a href="%s" title="(%s) %s">[#%s(%s)]</a> ' % (env.href.ticket(row[0]), 
-                                                       row[2],
-                                                       row[3],
-                                                       row[0],
-                                                       row[1]))
+        # buf.write('<a href="%s" title="(%s) %s">[#%s(%s)]</a> ' % (env.href.ticket(row[0]), row[2], row[3], row[0], row[1]))
+        buf.write('<a href="%s" title="ticket: %s: %s">[#%s(%s)]</a>' % (env.href.ticket(row[0]), 
+                                                                         row[0], 
+                                                                         row[2].replace("\"", "'"), 
+                                                                         row[0], 
+                                                                         row[1]))
 
     buf = buf.getvalue()
     if buf:
         return buf
+
     return "None"
