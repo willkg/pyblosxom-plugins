@@ -14,7 +14,7 @@ I apologize for usurping the word "wiki".  It sort of describes what
 this plugin does, but also implies things which aren't necessarily
 true.
 
-This plugin is maintained at:
+This plugin is maintained at::
 
    http://www.bluesock.org/~willg/pyblosxom/
 

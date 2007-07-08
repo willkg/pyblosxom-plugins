@@ -1,5 +1,8 @@
 """
-This plugin is triggered by "debug=yes" in the query string.  It'll
+Summary
+=======
+
+This plugin is triggered by ``debug=yes`` in the query string.  It'll
 change the renderer being used to the Debug renderer.
 
 It makes programming some things _much_ easier.
@@ -8,12 +11,14 @@ There's no configuration required for this plugin--you can drop it in
 your plugin dir and it'll work just fine.
 
 
-This plugin is placed in the Public Domain.
+----
 
+This plugin is placed in the Public Domain.
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2004-11-13 - Put into the Public Domain.
 2005-11-11 - Pulled into new VCS.
 1.5 - (26 October, 2005) pulled into new VCS

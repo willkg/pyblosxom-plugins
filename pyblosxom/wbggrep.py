@@ -1,25 +1,30 @@
 """
+Summary
+=======
+
 This plugin is a basic search plugin that uses grep.  It's super
 ultra basic but it provides for my search needs pretty well.
 
 To install:
 
-  1. toss the plugin in your plugin dir
-  2. add to your load_plugins list in your config.py file
-  3. add a form to your foot.html or head.html like this:
+1. toss the plugin in your plugin dir
+2. add to your load_plugins list in your config.py file
+3. add a form to your foot.html or head.html like this::
 
       <form method="post" action="$base_url/search">
       <input name="query" value="" size=15><br>
       <input type="submit" name="search" value="Search">
       </form>
 
-  4. you can specify the flavour the entry links point to with
-     the config.py property "grep_flavour" (defaults to html)
-  5. you can specify the story template to use for the search
-     results entry with "grep_template" (defaults to "story")
-  6. depending on where grep is on your system and what flags
-     it supports, you may have to edit the grep command line
+4. you can specify the flavour the entry links point to with
+   the config.py property "grep_flavour" (defaults to html)
+5. you can specify the story template to use for the search
+   results entry with "grep_template" (defaults to "story")
+6. depending on where grep is on your system and what flags
+   it supports, you may have to edit the grep command line
 
+
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -41,11 +46,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004 Will Guaraldi
+Copyright 2004-2007 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.5 - (26 October, 2005) pulled into new VCS
 1.1 - (09 December, 2004) fixed date_head issue.

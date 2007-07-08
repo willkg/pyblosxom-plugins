@@ -1,4 +1,7 @@
 """
+Summary
+=======
+
 This plugin is maintained at:
 
    http://www.bluesock.org/~willg/pyblosxom/
@@ -6,20 +9,22 @@ This plugin is maintained at:
 Check that URL for new versions, better documentation, and submitting
 bug reports and feature requests.
 
-----
+
+Usage
+=====
 
 This plugin allows you to include the contents of a file as a variable.
 This has some utility when reading in the output of a cronjob that pulls
 data down or some other such thing.
 
-It happs in cb_head and cb_foot--so you can use this variable in either
-place.
+It happens in ``cb_head`` and ``cb_foot``--so you can use this variable in 
+either place.
 
 To insert a file in your head or foot template, do the following::
 
     $util::include("filename")
 
-where "filename" is replaced by the file name.  In most cases you will
+where ``filename`` is replaced by the file name.  In most cases you will
 want to provide an absolute path, however pyinclude will handle
 relative paths and base them off of the root_datadir.
 
@@ -28,39 +33,44 @@ Examples::
     $util::include("/home/willg/.plan")
     $util::include("desc.dsc")
 
-In the first example, we will pull in the .plan file all the time.  In
-the second example, we will pull in the desc.dsc file if there is one
-in the root_datadir.  The root_datadir is the category the user is looking
-at.  If there isn't such a file in the root_datadir, then this will
-return an empty string.
+In the first example, we will pull in the ``.plan`` file all the time.  In
+the second example, we will pull in the ``desc.dsc`` file if there is one
+in the ``root_datadir``.  The ``root_datadir`` is the category the user is 
+looking at.  If there isn't such a file in the ``root_datadir``, then this 
+will return an empty string.
 
+
+Configuration
+=============
 
 This plugin requires no configuration setup--you can drop it in your
 plugin dir and it'll work out of the box.
 
-It also handles evaluating python code blocks.  Enclose them in <% and %>
-and use regular python.  The assumption is that only you can edit your 
-static files, so there are no restrictions.
+It also handles evaluating python code blocks.  Enclose them in ``<%`` and 
+``%>`` and use regular python.  The assumption is that only you can edit your 
+template files, so there are no restrictions.
 
-For example:
+For example::
 
-<%
-print "testing"
-%>
+   <%
+   print "testing"
+   %>
 
-<%
-x = { "apple": 5, "banana": 6, "pear": 4 }
-for mem in x.keys():
-   print "<li>%s - %s</li>" % (mem, x[mem])
-%>
+   <%
+   x = { "apple": 5, "banana": 6, "pear": 4 }
+   for mem in x.keys():
+      print "<li>%s - %s</li>" % (mem, x[mem])
+   %>
 
-To use things in the Request object, the variable name is "request":
+To use things in the Request object, the variable name is ``request``::
 
-<%
-config = request.getConfiguration()
-print config["datadir"]
-%>
+   <%
+   config = request.getConfiguration()
+   print config["datadir"]
+   %>
 
+
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -87,6 +97,7 @@ Copyright 2002, 2003 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - Converted documentation to restructured text.
 2005-11-11 - Pulled into another new version control system.
 1.3 - (26 October, 2005) pulled into new version control system
 1.2 - (14 May, 2004) added handling for relative filenames

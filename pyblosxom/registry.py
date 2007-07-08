@@ -1,4 +1,7 @@
 """
+Summary
+=======
+
 This plugin handles displaying a file registry, submitting new entries
 to a registry, and comments for existing entries.  A registry 
 is a series of .txt files which provide information about a given series 
@@ -6,16 +9,15 @@ of things which are registered.  They are organized into categories by
 the directory structure.  
 
 The registry plugin uses the entryparser for .txt files which parses
-entries that look like this:
+entries that look like this::
 
-%<-------------------------
-title of plugin
-#name value
-#name value
-#name value
-#name value
-description of plugin
-%<-------------------------
+   title of plugin
+   #name value
+   #name value
+   #name value
+   #name value
+   description of plugin
+
 
 The registry plugin can use entries parsed by other entry parsers so long
 as they support meta information.  It supports preformatters and 
@@ -23,15 +25,15 @@ postformatters and all that stuff because it uses the regular entry parsers.
 
 The registry requires several templates in your data directory:
 
-  - registry-summary - used for an entry summary line
-  - registry-story   - used for a complete single entry
-  - registry-index   - used to hold a bunch of summaries
+* registry-summary - used for an entry summary line
+* registry-story   - used for a complete single entry
+* registry-index   - used to hold a bunch of summaries
 
 The registry plugin requires a registry-summary template in your data
 directory.  This is used to provide a summary of a given registry
 entry.
 
-The registry will support the following urls:
+The registry will support the following urls::
 
     /registry                 -- listing by date (mtime)
     /registry?sortby=category -- listing by category
@@ -42,7 +44,7 @@ The registry will support the following urls:
     /registry_queue           -- shows all the pending submissions
 
 The registry plugin requires the following variables to be set in
-your config.py file:
+your config.py file::
 
     registry_dir    - the directory holding your registry entries
     registry_edit   - whether (1) or not (0) you allow people to submit
@@ -50,6 +52,7 @@ your config.py file:
     registry_default_flavour - the default flavour to use for the registry
                       if none are requested--defaults to "html"
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -71,11 +74,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2002-2004 Will Guaraldi
+Copyright 2002-2007 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into a new version control system.
 2.2 - (26 October, 2005) pulled into new VCS
 2.1 - (13 December, 2004) fixed date_head template issue

@@ -1,5 +1,7 @@
-# vim: tabstop=4 shiftwidth=4
 """
+Summary
+=======
+
 Walks through all your blog entries and comments and makes a list of
 all the entries that were either written in the last 14 days or have
 comments written in the last 14 days.  It then generates a very
@@ -8,12 +10,13 @@ flavour template yearmonthsummary which I use for my wbgarchives
 plugin.
 
 This plugin requires no installation.  Just drop it in and the url
-will be:
+will be::
 
    $baseurl/recent
 
 to see the recent activity.
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -35,11 +38,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004 Will Guaraldi
+Copyright 2004-2007 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - Converted documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.5 - (26 October, 2005) pulled into new VCS
 1.1 - (09 December, 2004) fixed the timestamp and date_head issues

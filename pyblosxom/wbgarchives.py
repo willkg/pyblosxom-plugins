@@ -1,30 +1,37 @@
-# vim: tabstop=4 shiftwidth=4
 """
+Summary
+=======
+
 Walks through your blog root figuring out all the available years for
 the archives list.  It stores the years with links to year summaries
 in the variable $archivelinks.  You should put this variable in either
 your head or foot templates.
 
+
+Usage
+=====
+
 When the user clicks on one of the year links (i.e. http://base_url/2004/"), 
 then wbgarchives will display a summary page for that year.  The summary is 
-generated using the yearsummarystory.html template for each month in the
-year.  Mine is:
+generated using the ``yearsummarystory.html`` template for each month in the
+year.  Mine is::
 
-%<----------------------------------------
-<div class="blosxomEntry">
-<span class="blosxomTitle">$title</span>
-<div class="blosxomBody">
-<table>
-$body
-</table>
-</div>
-</div>
-%<----------------------------------------
+   <div class="blosxomEntry">
+   <span class="blosxomTitle">$title</span>
+   <div class="blosxomBody">
+   <table>
+   $body
+   </table>
+   </div>
+   </div>
 
-I don't have anything configurable in config.py--so you'll have to edit
-the html stuff directly in the plugin.  If you dislike this, please take
-some time to fix it and send me a diff and I'll make the adjustments.
 
+I don't have anything configurable in ``config.py``--so you'll have to 
+edit the html stuff directly in the plugin.  If you dislike this, please 
+take some time to fix it and send me a diff and I'll make the adjustments.
+
+
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -51,6 +58,7 @@ Copyright 2004 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.4 - (26 October, 2005) pulled into new VCS
 1.3 - (14 March, 2005) added categories

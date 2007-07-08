@@ -1,24 +1,30 @@
 """
+Summary
+=======
+
 Ultra-uninteresting plugin for converting an ASIN and name into an
 amazon store link html thing.
 
 Amazon thingy needs to start at the beginning of the line and be in 
-this format:
+this format::
 
- AMAZON::asin::title
+   AMAZON::asin::title
 
-For example:
+For example::
 
- AMAZON::0385418957::Seven Pillars of Wisdom, by T.E. Lawrence
+   AMAZON::0385418957::Seven Pillars of Wisdom, by T.E. Lawrence
 
 This theoretically works for books as well as other thing.  The html 
 template and amazon store are both hardcoded.
 
 This code is placed in the public domain--use it as you so desire.
 
+----
+
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.4 - (26 October, 2005) pulled into new VCS
 1.3 - (August 17, 2004) Fixed the documentation which was wrong and

@@ -1,4 +1,7 @@
 """
+Summary
+=======
+
 This works in conjunction with the comments plugin and allows you to
 reduce comment spam by adding a "I am human" checkbox to your form.
 Any comments that aren't "from a human" get rejected immediately.
@@ -7,48 +10,46 @@ This shouldn't be the only way you reduce comment spam.  It's probably
 not useful to everyone, but would be useful to some people as a quick
 way of catching some of the comment spam they're getting.
 
+
+Usage
+=====
+
 For setup, copy the plugin to your plugins directory and add it to
 your load_plugins list in your config.py file.
 
 Then add the following item to your config.py (this defaults to
-"iamhuman"):
+"iamhuman")::
 
-%<---------------------------------------------------
-py["nonhuman_name"] = "iamhuman"
-%<---------------------------------------------------
+   py["nonhuman_name"] = "iamhuman"
 
 
 Then add the following to your comment-form template just above
 the submit button (make sure to match the input name to your
-configured input name):
+configured input name)::
 
-%<---------------------------------------------------
-<input type="checkbox" name="iamhuman" value="yes"> Yes, I am human!
-%<---------------------------------------------------
+   <input type="checkbox" name="iamhuman" value="yes"> Yes, I am human!
 
 
-If you set the nonhuman_name property, then you can do this:
+If you set the nonhuman_name property, then you can do this::
 
-%<---------------------------------------------------
-<input type="checkbox" name="$nonhuman_name" value="yes"> Yes, I am human!
-%<---------------------------------------------------
+   <input type="checkbox" name="$nonhuman_name" value="yes"> Yes, I am human!
 
 
 Additionally, the wbgcomments_nonhuman plugin can log when it
 rejected a comment.  This is good for statistical purposes.
 1 if "yes, I want to log" and 0 (default) if "no, i don't want 
-to log".
+to log".  Example::
 
-%<---------------------------------------------------
-py["nonhuman_log"] = 1
-%<---------------------------------------------------
+   py["nonhuman_log"] = 1
+
 
 And that's it!
 
-The idea came from 
+The idea came from::
 
    http://www.davidpashley.com/cgi/pyblosxom.cgi/2006/04/28#blog-spam
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -70,11 +71,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2006 Will Guaraldi
+Copyright 2006-2007 Will Guaraldi
 
 SUBVERSION VERSION $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2006-04-28 - Initial writing.
 """
 __author__ = "Will Guaraldi - willg at bluesock dot org"

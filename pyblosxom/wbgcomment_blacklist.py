@@ -1,4 +1,7 @@
 """
+Summary
+=======
+
 This works in conjunction with the comments plugin and allows you to
 reduce comment spam by a words blacklist.  Any comment that contains
 one of the blacklisted words will be rejected immediately.
@@ -7,28 +10,29 @@ This shouldn't be the only way you reduce comment spam.  It's probably
 not useful to everyone, but would be useful to some people as a quick
 way of catching some of the comment spam they're getting.
 
+
+Usage
+=====
+
 For setup, all you need to do is set the comment_rejected_words 
 property in your config.py file.  For example, the following will
-reject any incoming comments with the words "gambling" or "casino"
-in them:
+reject any incoming comments with the words ``gambling`` or ``casino``
+in them::
 
-%<---------------------------------------------------
-py["comment_rejected_words"] = ["gambling", "casino"]
-%<---------------------------------------------------
+   py["comment_rejected_words"] = ["gambling", "casino"]
+
 
 The comment_rejected_words property takes a list of strings as a
 value.
 
-
 Additionally, the wbgcomments_blacklist plugin can log when it
 blacklisted a comment and what word was used to blacklist it.
 Sometimes this information is interesting.  1 if "yes, I want
-to log" and 0 (default) if "no, i don't want to log".
+to log" and 0 (default) if "no, i don't want to log".  Example::
 
-%<---------------------------------------------------
-py["comment_rejected_words_log"] = 1
-%<---------------------------------------------------
+   py["comment_rejected_words_log"] = 1
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -50,11 +54,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2002-2004 Will Guaraldi
+Copyright 2002-2007 Will Guaraldi
 
 SUBVERSION VERSION $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.5 - (26 October, 2005) pulled into new VCS
 1.0 - (11 April, 2005) first release

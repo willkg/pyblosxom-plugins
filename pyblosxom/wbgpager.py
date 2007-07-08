@@ -1,5 +1,8 @@
 """
-Quickly written plugin for paging long index pages.  
+Summary
+=======
+
+Plugin for paging long index pages.  
 
 PyBlosxom uses the num_entries configuration variable to prevent
 more than num_entries being rendered by cutting the list down
@@ -13,17 +16,17 @@ the line.
 
 To install wbgpager, do the following:
 
-  1. add "wbgpager" to your load_plugins list variable in your
-     config.py file--make sure it's the first thing listed so
-     that it has a chance to operate on the entry list before
-     other plugins.
-  2. add the $page_navigation variable to your head or foot
-     (or both) templates.  this is where the page navigation
-     HTML will appear.
+1. add "wbgpager" to your load_plugins list variable in your
+   config.py file--make sure it's the first thing listed so
+   that it has a chance to operate on the entry list before
+   other plugins.
+2. add the $page_navigation variable to your head or foot
+   (or both) templates.  this is where the page navigation
+   HTML will appear.
 
 
 Here are some additional configuration variables to adjust the 
-behavior:
+behavior::
 
   wbgpager_count_from
     datatype:       int
@@ -58,6 +61,7 @@ page to show and when you're static rendering, only the first page
 is rendered.  This will require a lot of thought to fix.  If you are
 someone who is passionate about fixing this issue, let me know.
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -84,6 +88,7 @@ Copyright 2004, 2005, 2006 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - Converted documentation to reST.
 2006-01-15 - Fixed problems with static rendering, added a note about how
              wbgpager sucks with static rendering, and also added a
              verify_installation section to check that num_entries is set.

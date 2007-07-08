@@ -1,9 +1,15 @@
 """
+Summary
+=======
+
 The rss2renderer is a renderer that will render your blog in RSS2
 format.  This allows you to have RSS2 syndication without writing
 flavour templates for RSS2.
 
-The following are required properties in your config.py file:
+Usage
+=====
+
+The following are required properties in your config.py file::
 
    blog_title        - the title of your blog
    blog_author       - your name
@@ -12,23 +18,20 @@ The following are required properties in your config.py file:
    blog_language     - the language code for your blog
    blog_encoding     - the encoding of your blog (defaults to utf-8)
 
-Optionally, you can specify:
+
+Optionally, you can specify::
 
    rss2_extension    - the extension (defaults to "/index.rss2") that
                        causes this renderer to be used
 
 Miscellaneous notes about this plugin:
 
-1. the Content-Type we return is "application/xml" so your links
+1. the Content-Type we return is ``application/xml`` so your links
    should match
 2. this doesn't handle comments
 3. this plugin requires pyxml be installed
 
 FIXME - probably needs more information in this help portion!
-
-
-This code is placed in the public domain.  Do with it as you will.
-
 
 Originally written by Blake Winton.
 Overhauled by Will Guaraldi.
@@ -37,9 +40,14 @@ Just for clarity sake, Blake wrote the majority of the code, but Will is
 going to take responsibility to maintain the code going forward (unless
 Blake really wants to--doesn't bother Will either way).
 
+----
+
+This code is placed in the public domain.  Do with it as you will.
+
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - Converted documentation to reST.
 2006-01-19 - Minor adjustments to the documentation, added a note, and
              I'm no longer actively maintaining this plugin.
 2005-11-11 - Pulled into new version control system.

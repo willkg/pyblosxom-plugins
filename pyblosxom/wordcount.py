@@ -1,4 +1,7 @@
 """
+Summary
+=======
+
 This is a basic plugin that counts the number of words in each entry
 and populates the metadata with that count.
 
@@ -13,9 +16,12 @@ There is no config properties to set up--you can drop this plugin in
 and it will work fine.
 
 
+----
+
 This plugin is released into the public domain.  Do with it as you will.
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.2 - did some more stuff
 1.1 - did some stuff

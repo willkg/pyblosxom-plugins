@@ -1,9 +1,16 @@
 """
+Summary
+=======
+
 This is a silly plugin to keep track of the number of times a given entry
 has been viewed and to populate the metadata for an entry to display
 that count.
 
-It populates the $viewcount variable with the number of views of this 
+
+Usage
+=====
+
+It populates the ``$viewcount`` variable with the number of views of this 
 entry.
 
 Because it only figures out the viewcount and updates it when it's asked
@@ -12,20 +19,21 @@ do any fancy caching or anything.  Though clearly this won't scale
 to lots and lots of entries.  Probably on the order of 100s possibly
 1000s.
 
-This plugin creates a viewcounts.dat file in your datadir to store
+This plugin creates a ``viewcounts.dat`` file in your datadir to store
 the information in.
 
 No configuration is needed by this plugin--it should just work out
 of the box.
 
-
 NOTE: I'm not entirely sure this plugin works anymore.  It does require
 a lock on the data file and this seems not to work all the time.
 
+----
 
 This plugin is placed in the public domain.  Do with it as you will.
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new VCS.  Released into Public Domain.
 1.8 (31 March 2004) - fixed it so that the count only goes up when someone hits
     the page directly

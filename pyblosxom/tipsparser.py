@@ -1,25 +1,27 @@
 """
+Summary
+=======
+
 An entry parser for tips.  It's like the regular txt parser, but does
 some minor formatting and has an understanding of a "changelog".  A
-"tips" entry would be named something like:
+"tips" entry would be named something like::
 
-    datadir/pyblosxom/tips/mytip.tips
+   datadir/pyblosxom/tips/mytip.tips
 
-and would look like this:
+and would look like this::
 
-%<------------------------------------------------
-title: my favorite tip
-changelog: v.1.0 (26 January 2004) - initial writing
-body:
-   <p>
-   This is my fantabulous tip.
-   </p>
-
-   <pre class="code">
-       def look_at_code_snippet_here(foo):
-           ...
-   </pre>
-%<------------------------------------------------
+   title: my favorite tip
+   changelog: v.1.0 (26 January 2004) - initial writing
+   body:
+      <p>
+      This is my fantabulous tip.
+      </p>
+   
+      <pre class="code">
+          def look_at_code_snippet_here(foo):
+              ...
+      </pre>
+   
 
 Nothing wildly exciting, but it might be a nice example of a simple
 entry parser plugin.
@@ -27,6 +29,8 @@ entry parser plugin.
 No configuration variables need to be set.  You can just drop
 this in and it'll work.
 
+
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -53,6 +57,7 @@ Copyright 2004 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new version control system.
 1.5 - (26 October, 2005) pulled into new version control system
 1.1 - (15 February 2004) adjustments to datafile handling

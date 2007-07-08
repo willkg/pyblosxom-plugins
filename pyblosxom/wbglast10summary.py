@@ -1,10 +1,15 @@
 """
+Summary
+=======
+
 Thrown-together plugin to summarize all entries after the first five
 in the html flavour.
 
-This uses the summary template.  So make sure to build a summary template 
-file.  Also, you should probably fiddle with the values in this plugin to 
-get it to meet your special needs.
+This uses the ``summary`` template.  So make sure to build a ``summary`` 
+template file.  Also, you should probably fiddle with the values in this 
+plugin to get it to meet your special needs.
+
+----
 
 This code is placed in the public domain.  Do with it as you will.
 

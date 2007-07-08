@@ -1,4 +1,7 @@
 """
+Summary
+=======
+
 This plugin is maintained at:
 
    http://www.bluesock.org/~willg/pyblosxom/
@@ -6,7 +9,9 @@ This plugin is maintained at:
 Check that URL for new versions, better documentation, and submitting
 bug reports and feature requests.
 
-----
+
+Usage
+=====
 
 This plugin allows you to include static files outside of the entry
 system.  Static files should probably be text files, though this plugin
@@ -17,45 +22,46 @@ It looks for urls like::
 
    /static/blah
 
-and pulls up the file "blah.txt" [1] which is located in the path specified
-in the config file as "staticdir".  If no staticdir is specified, then we
+and pulls up the file ``blah.txt`` [1] which is located in the path specified
+in the config file as ``staticdir``.  If no staticdir is specified, then we
 use the datadir.
 
 If the file is not there, it kicks up a 404.
 
-[1] The file ending (the ".txt" part) can be any file ending that's valid
-    for entries on your blog.  For example, if you have the textile
-    entryparser installed, then ".txtl" is also a valid file ending.
+[1] The file ending (the ``.txt`` part) can be any file ending that's valid
+for entries on your blog.  For example, if you have the textile
+entryparser installed, then ``.txtl`` is also a valid file ending.
 
-pystaticfile formats the page using the static flavour template.
-So you need to add a "static.html" file to your datadir (assuming
-you're using the "html" flavour).  I tend to copy my story flavour
+pystaticfile formats the page using the ``static`` template.
+So you need to add a ``static.html`` file to your datadir (assuming
+you're using the ``html`` flavour).  I tend to copy my story flavour
 templates over and remove the date/time-related bits.
 
 pystaticfile handles evaluating python code blocks.  Enclose python
-code in <% and %> .  The assumption is that only you can edit your 
+code in ``<%`` and ``%>`` .  The assumption is that only you can edit your 
 static files, so there are no restrictions (security or otherwise).
 
-For example:
+For example::
 
-<%
-print "testing"
-%>
+   <%
+   print "testing"
+   %>
 
-<%
-x = { "apple": 5, "banana": 6, "pear": 4 }
-for mem in x.keys():
-   print "<li>%s - %s</li>" % (mem, x[mem])
-%>
+   <%
+   x = { "apple": 5, "banana": 6, "pear": 4 }
+   for mem in x.keys():
+      print "<li>%s - %s</li>" % (mem, x[mem])
+   %>
 
 The request object is available in python code blocks.  Reference it
-by "request".  ex:
+by ``request``.  Example::
 
-<%
-config = request.getConfiguration()
-print "your datadir is: %s" % config["datadir"]
-%>
+   <%
+   config = request.getConfiguration()
+   print "your datadir is: %s" % config["datadir"]
+   %>
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -77,11 +83,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2002-2005 Will Guaraldi
+Copyright 2002-2007 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2006-10-01 - adjustments to the documentation at the top.
 2005-11-13 - now adjusts the $blog_title_with_path variable to include
              the static file title

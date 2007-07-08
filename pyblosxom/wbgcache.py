@@ -1,10 +1,14 @@
 """
+Summary
+=======
+
 This plugin keeps a cache of things so that we don't re-render
 things we've rendered before and have cached.
 
-It requires a "cachedir" config property which should be an absolute
+It requires a ``cachedir`` config property which should be an absolute
 directory name for the cache that we read from and write to.
 
+----
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -29,6 +33,7 @@ SOFTWARE.
 Copyright 2004 Will Guaraldi
 
 Revisions:
+2007-07-07 - updated documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.0 - (24 April 2004) initial writing
 """

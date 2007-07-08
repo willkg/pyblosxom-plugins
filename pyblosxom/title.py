@@ -1,21 +1,24 @@
 """
-Provides me with a $urlencodedtitle which is better for the Google link.
-It's a urlencoded title.
+Summary
+=======
+
+Provides me with a ``$urlencodedtitle`` which is better for the Google 
+link.  It's a urlencoded title.
 
 There's no configuration needed--you can drop this plugin into your
 plugin dir and it'll work just fine.
 
-
-NOTE: This plugin is not required if you're using PyBlosxom 1.3 and
+**NOTE:** This plugin is not required if you're using PyBlosxom 1.3 or
 later.
 
+----
 
 This plugin is placed in the Public Domain.
-
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - converted documentation to reST.
 2005-11-13 - Place into the Public Domain.
 2005-11-11 - Pulled into new VCS.
 1.3 - (26 October, 2005) pulled into new VCS

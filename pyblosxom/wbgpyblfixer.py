@@ -1,12 +1,26 @@
 """
+Summary
+=======
+
 Plugin to help those of us who can never spell PyBloxosom right.
 
+
+Usage
+=====
+
+Drop it in your plugins directory and add ``wbgpyblfixer`` to your
+load_plugins list.  Then it'll correct funky spellings of PyBlosxom
+to the actual spelling.
+
+
+----
 
 This code is placed in the public domain--use it as you so desire.
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - Converted documentation to reST.
 2006-05-11 - First writing to help Carol.
 """
 import re
