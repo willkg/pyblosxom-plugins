@@ -1,25 +1,29 @@
 """
-This plugin is maintained at:
+Summary
+=======
+
+This plugin is maintained at::
 
    http://www.bluesock.org/~willg/pyblosxom/
 
 Check that URL for new versions, better documentation, and submitting
 bug reports and feature requests.
 
-----
+
+Usage
+=====
 
 This plugin goes through all the plugins you have installed on your blog
 and extracts information about the plugin.
 
-To kick it off, the url starts with /plugin_info .
+To kick it off, the url starts with ``/plugin_info`` .
 
 If there are plugins you want to run that you don't want showing up,
-list them in the "plugininfo_hide" property of your config.py file:
+list them in the ``plugininfo_hide`` property of your ``config.py`` file::
 
    py["plugininfo_hide"] = ["myplugin", "myotherplugin"]
 
 It takes a list of strings.
-
 
 ----
 
@@ -48,6 +52,7 @@ Copyright 2002-2007 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-07-07 - Converted documentation to restructured text.
 2007-05-19 - Brushed up the code, fixed documentation, ...
 2005-11-11 - Pulled into another new version control system
 1.8 - (26 October, 2005) pulled into new version control system
