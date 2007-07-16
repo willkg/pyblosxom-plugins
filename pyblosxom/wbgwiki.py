@@ -27,9 +27,28 @@ wikidir Configuration
 =====================
 
 Wiki pages are located in the directory specified by ``wikidir`` in your
-``config.py`` file.  Example::
+``config.py`` file.  Examples::
 
    py["wikidir"] = "/home/willg/blog/wiki"
+
+   py["wikidir"] = "/home/willg/blog/mywiki"
+
+   py["wikidir"] = "/home/willg/blog/wikidir"
+
+   py["wikidir"] = "/home/willg/blog/mywikidir"
+
+
+.. Note::
+
+   It's not a good idea to put your wikidir inside your datadir or your
+   datadir inside your wikidir.  It's best to keep them separate.  I
+   have a directory hierarchy like this::
+
+      - blog/
+         | - entries/
+         | - wiki/
+         | - flavours/
+         | - plugins/
 
 
 URLs
