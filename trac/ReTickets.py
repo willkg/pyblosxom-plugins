@@ -50,9 +50,12 @@ def execute(hdf, args, env):
         if len(argv) > 0:
             component = argv[0]
 
-    sql = 'SELECT id, owner, summary, description FROM ticket WHERE component = \'' + component + '\' AND status IN (\'new\', \'assigned\', \'reopened\')'
-
-    cursor.execute(sql)
+    cursor.execute( """SELECT id, owner, summary, description 
+                       FROM ticket 
+                       WHERE component = '%s' 
+                       AND status IN ('new', 'assigned', 'reopened') 
+                    """ %
+                    component )
 
     buf = StringIO()
     while 1:
@@ -60,12 +63,9 @@ def execute(hdf, args, env):
         if row == None:
             break
 
-        # buf.write('<a href="%s" title="(%s) %s">[#%s(%s)]</a> ' % (env.href.ticket(row[0]), row[2], row[3], row[0], row[1]))
-        buf.write('<a href="%s" title="ticket: %s: %s">[#%s(%s)]</a>' % (env.href.ticket(row[0]), 
-                                                                         row[0], 
-                                                                         row[2].replace("\"", "'"), 
-                                                                         row[0], 
-                                                                         row[1]))
+        buf.write('<a href="%s" title="ticket: %s: %s">[#%s(%s)]</a>' % 
+                  (env.href.ticket(row[0]), row[0], row[2].replace("\"", "'"), 
+                   row[0], row[1]))
 
     buf = buf.getvalue()
     if buf:
