@@ -27,6 +27,14 @@ rather to keep track of the books on your reading table.  Then maybe
 you could write up an entry for when you finished the book with your
 more complete thoughts on it.  (shrug)
 
+For the completeness column you could use ``done`` and then percentage
+amounts for how complete you are.
+
+Alternatively, you could use ``in progress`` and if you've completed
+the book, use the end date.  If you want it ordered correctly, you 
+should do all dates in YYYY-MM-DD format.  booklist is "clever" about
+putting ``in progress`` books first.
+
 
 Config variables
 ================
@@ -108,6 +116,7 @@ Copyright 2002-2004 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-08-27 - made changes regarding how completeness is used.
 2007-07-07 - converted documentation to reST.
 2005-11-12 - pulled into another new version control system.
 1.8 - (26 October, 2005) pulled into a new version control system
@@ -144,6 +153,15 @@ def verify_installation(request):
         print "adds 'buy this now' style links to the entries."
 
     return 1
+
+def book_compare(booka, bookb):
+    if booka[COMPLETENESS].lower() == "in progress":
+        return -1
+
+    if bookb[COMPLETENESS].lower() == "in progress":
+        return 1
+
+    return cmp(bookb[COMPLETENESS], booka[COMPLETENESS])
 
 def populate_list(request):
     config = request.getConfiguration()
@@ -184,7 +202,7 @@ class Booklist:
 
         listing = self._booklist[:]
 
-        listing.sort(lambda x,y:cmp(x[1], y[1]))
+        listing.sort(book_compare)
 
         if len(listing) > 5:
             listing = listing[:5]
@@ -281,7 +299,7 @@ def cb_filelist(args):
     data[INIT_KEY] = 1
 
     booklist = populate_list(request)[:]
-    booklist.sort(lambda x,y:cmp(x[1], y[1]))
+    booklist.sort(book_compare)
 
     buy_link = config.get("booklist_buy_link", "")
 
