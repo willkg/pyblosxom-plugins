@@ -121,8 +121,8 @@ def build_entry(request, mem):
     # __version__, and __url__ (though those should be changed to something
     # like VERSION, AUTHOR, and URL so as to avoid confusion with Python
     # special things.
-    plugindata.append("AUTHOR: " + str(getattr(mem, "__author__")) + "\n")
-    plugindata.append("VERSION: " + str(getattr(mem, "__version__")) + "\n")
+    plugindata.append("AUTHOR: " + str(getattr(mem, "__author__", None)) + "\n")
+    plugindata.append("VERSION: " + str(getattr(mem, "__version__", None)) + "\n")
     if hasattr(mem, "__url__"):
         plugindata.append("URL: <a href=\"%s\">%s</a>\n" % \
                           (str(mem.__url__), str(mem.__url__)))
