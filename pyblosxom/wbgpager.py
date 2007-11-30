@@ -46,7 +46,7 @@ behavior::
 
   wbgpager_linkstyle
     datatype:       integer
-    default value:  0
+    default value:  1
     description:    This allows you to change the link style of the paging.
                     style 0:  [1] 2 3 4 5 6 7 8 9 ... >>
                     style 1:  Page 1 of 4 >>
@@ -88,6 +88,7 @@ Copyright 2004, 2005, 2006 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2007-11-30 - Fixed the wbgpager_linkstyle documentation.  Thanks Steve!
 2007-07-07 - Converted documentation to reST.
 2006-01-15 - Fixed problems with static rendering, added a note about how
              wbgpager sucks with static rendering, and also added a
