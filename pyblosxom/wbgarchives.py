@@ -53,11 +53,13 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004 Will Guaraldi
+Copyright 2004, 2005, 2006, 2007, 2008 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2008-01-01 - fixed a problem between wbgarchives and comments and also
+             fixed the ordering of months displayed.
 2007-07-07 - converted documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.4 - (26 October, 2005) pulled into new VCS
@@ -126,7 +128,7 @@ def cb_prepare(args):
     data = request.getData()
     data["archivelinks"] = WbgArchives(request)
 
-def new_entry(request, title, body):
+def new_entry(request, yearmonth, body):
     """
     Takes a bunch of variables and generates an entry out of it.  It creates
     a timestamp so that conditionalhttp can handle it without getting
@@ -134,15 +136,18 @@ def new_entry(request, title, body):
     """
     entry = entries.base.EntryBase(request)
 
-    entry['title'] = title
-    entry['filename'] = title + "/summary"
-    entry['file_path'] = title
-    entry._id = title + "::summary"
+    entry['title'] = yearmonth
+    entry['filename'] = yearmonth + "/summary"
+    entry['file_path'] = yearmonth
+    entry._id = yearmonth + "::summary"
 
     entry["template_name"] = "yearsummarystory"
     entry["nocomments"] = "yes"
 
-    entry.setTime(time.localtime())
+    entry["absolute_path"] = ""
+    entry["fn"] = ""
+
+    entry.setTime(time.strptime(yearmonth, "%Y-%m"))
     entry.setData(body)
 
     return entry
