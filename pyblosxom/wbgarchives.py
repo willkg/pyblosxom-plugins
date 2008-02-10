@@ -53,7 +53,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004, 2005, 2006, 2007, 2008 Will Guaraldi
+Copyright 2004-2008 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
@@ -123,11 +123,6 @@ class WbgArchives:
         self._archives = '\n'.join(result)
         self._items = items
 
-def cb_prepare(args):
-    request = args["request"]
-    data = request.getData()
-    data["archivelinks"] = WbgArchives(request)
-
 def new_entry(request, yearmonth, body):
     """
     Takes a bunch of variables and generates an entry out of it.  It creates
@@ -152,8 +147,12 @@ def new_entry(request, yearmonth, body):
 
     return entry
 
-
 INIT_KEY = "wbgarchives_initiated"
+
+def cb_prepare(args):
+    request = args["request"]
+    data = request.getData()
+    data["archivelinks"] = WbgArchives(request)
 
 def cb_date_head(args):
     request = args["request"]
