@@ -10,9 +10,6 @@ to num_entries entries.  So if your num_entries is set to 20, you
 will only see the first 20 entries rendered.
 
 The wbgpager overrides this functionality and allows for paging.
-It does some dirty stuff so that PyBlosxom doesn't cut the list down
-and then wbgpager cuts it down in the prepare callback later down
-the line.
 
 To install wbgpager, do the following:
 
@@ -83,11 +80,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004, 2005, 2006 Will Guaraldi
+Copyright 2004-2008 Will Guaraldi
 
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2008-02-10 - reworked the wbgpager to use the truncatelist callback.
 2007-11-30 - Fixed the wbgpager_linkstyle documentation.  Thanks Steve!
 2007-07-07 - Converted documentation to reST.
 2006-01-15 - Fixed problems with static rendering, added a note about how
@@ -156,32 +154,18 @@ class PageDisplay:
 
         return " ".join(output)
     
-def cb_start(args):
-    req = args["request"]
-    config = req.getConfiguration()
-
-    # we do a quick slight of hand here so that PyBlosxom doesn't
-    # go and cut down the list of entries before we get a chance
-    # to.
-    if not config.has_key("wbgpager_num_entries"):
-        ne = config.get("num_entries", 0)
-        config["wbgpager_num_entries"] = ne
-        config["num_entries"] = 0
-
-def cb_prepare(args):
-    request = args["request"]
+def page(request, num_entries, entry_list):
     http = request.getHttp()
     config = request.getConfiguration()
     data = request.getData()
+
     previous = config.get("wbgpager_previous_text", "&lt;&lt;")
     next = config.get("wbgpager_next_text", "&gt;&gt;")
 
     linkstyle = config.get("wbgpager_linkstyle", 1)
     if linkstyle > 1: linkstyle = 1
 
-    # grab the entry list
-    entry_list = data["entry_list"]
-    max = config.get("wbgpager_num_entries", 20)
+    max = num_entries
     count_from = config.get("wbgpager_count_from", 0)
 
     if max > 0 and isinstance(entry_list, list) and len(entry_list) > max:
@@ -226,3 +210,60 @@ def cb_prepare(args):
 
     else:
         data["page_navigation"] = ""
+
+
+from Pyblosxom import pyblosxom
+
+########################################################################
+# This functionality handles PyBlosxom 2.0 by using the new truncatelist
+# callback.  No klugy num_entries sleight-of-hand anymore.
+
+def cb_truncatelist(args):
+    if pyblosxom.VERSION_SPLIT < (2, 0, 0):
+        return
+
+    request = args["request"]
+    entry_list = args["entry_list"]
+
+    page(request, request.config.get("num_entries", 10), entry_list)
+    return request.data["entry_list"]
+
+
+########################################################################
+# This functionality kicks in for pre PyBlosxom 2.0 versions that don't
+# have the truncatelist callback.  It's very klugy.
+
+def cb_start(args):
+    if pyblosxom.VERSION_SPLIT >= (2, 0, 0):
+        return
+
+    req = args["request"]
+    config = req.getConfiguration()
+
+    # we do a quick slight of hand here so that PyBlosxom doesn't
+    # go and cut down the list of entries before we get a chance
+    # to.
+    if not config.has_key("wbgpager_num_entries"):
+        ne = config.get("num_entries", 0)
+        config["wbgpager_num_entries"] = ne
+        config["num_entries"] = 0
+
+def cb_prepare(args):
+    if pyblosxom.VERSION_SPLIT >= (2, 0, 0):
+        return
+
+    request = args["request"]
+    http = request.getHttp()
+    config = request.getConfiguration()
+    data = request.getData()
+    previous = config.get("wbgpager_previous_text", "&lt;&lt;")
+    next = config.get("wbgpager_next_text", "&gt;&gt;")
+
+    linkstyle = config.get("wbgpager_linkstyle", 1)
+    if linkstyle > 1: linkstyle = 1
+
+    # grab the entry list
+    entry_list = data["entry_list"]
+    max = config.get("wbgpager_num_entries", 20)
+
+    page(request, config.get("wbgpager_num_entries", 20), entry_list)
