@@ -148,11 +148,14 @@ def cb_filelist(args):
     entry = base.EntryBase(request)
     entry["title"] = "Search results...."
     entry["filename"] = "searchresults"
-    entry["nocomments"] = "1"
+    entry["filename"] = "searchresults"
+    entry["nocomments"] = "yes"
+    entry["absolute_path"] = ""
+    entry["fn"] = ""
     if config.has_key("grep_template"):
         entry["template_name"] = config["grep_template"]
 
     entry.setTime(time.localtime())
     entry.setData(output)
 
-    return [entry]
+    return [ entry ]
