@@ -107,7 +107,7 @@ class WbgArchives:
             y = time.strftime("%Y", timetuple)
             m = time.strftime("%m", timetuple)
             d = time.strftime("%d", timetuple)
-            l = "<a href=\"%s/%s/\">%s</a><br />" % (baseurl, y, y)
+            l = "<a href=\"%s/%s/\">%s</a><br>" % (baseurl, y, y)
 
             if not archives.has_key(y):
                 archives[y] = l
@@ -192,7 +192,7 @@ def cb_filelist(args):
     items.sort()
     items.reverse()
     
-    l = "(%(path)s) <a href=\"" + baseurl + "/%(file_path)s.html\">%(title)s</a><br />"
+    l = "(%(path)s) <a href=\"" + baseurl + "/%(file_path)s.html\">%(title)s</a><br>"
     e = "<tr>\n<td valign=\"top\" align=\"left\">%s</td>\n<td>%s</td></tr>\n"
     d = ""
     m = ""
