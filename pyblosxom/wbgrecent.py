@@ -55,7 +55,7 @@ __url__ = "http://www.bluesock.org/~willg/pyblosxom/"
 __description__ = "Summary of recent blog activity."
 
 from Pyblosxom import tools, entries
-import time, os, glob
+import time, os, glob, urllib
 
 def verify_installation(request):
     return 1
@@ -102,12 +102,14 @@ def get_comment_text(cmt):
         mem = mem.rstrip()
         if mem.find("<title>") == 0:
             title = mem.replace("<title>", "").replace("</title>", "")
+            title = urllib.unquote(title)
         elif mem.find("<author>") == 0:
             author = mem.replace("<author>", "").replace("</author>", "")
+            author = urllib.unquote(author)
 
-    return "(%s) %s, by %s" % \
+    return "(%s) comment from %s" % \
            (time.strftime("%m/%d/%Y %H:%M", time.localtime(cmt[0])), \
-            title, author)
+            author)
 
 def cb_filelist(args):
     request = args["request"]
@@ -171,7 +173,7 @@ def cb_filelist(args):
     entrylist = []
     output = []
     for mem in stuff:
-        entry = entries.fileentry.FileEntry(request, mem[2], data['root_datadir'])
+        entry = entries.fileentry.FileEntry(request, mem[2], config["datadir"])
         tstamp = time.strftime("%m/%d/%Y", time.localtime(mem[1]))
 
         temp = e % (tstamp, \
