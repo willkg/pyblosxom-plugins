@@ -85,6 +85,7 @@ Copyright 2004-2008 Will Guaraldi
 SUBVERSION VERSION: $Id$
 
 Revisions:
+2009-06-12 - fixed it to work with PyBlosxom 1.5
 2008-02-10 - reworked the wbgpager to use the truncatelist callback.
 2007-11-30 - Fixed the wbgpager_linkstyle documentation.  Thanks Steve!
 2007-07-07 - Converted documentation to reST.
@@ -215,26 +216,26 @@ def page(request, num_entries, entry_list):
 from Pyblosxom import pyblosxom
 
 ########################################################################
-# This functionality handles PyBlosxom 2.0 by using the new truncatelist
+# This functionality handles PyBlosxom 1.5 by using the new truncatelist
 # callback.  No klugy num_entries sleight-of-hand anymore.
 
 def cb_truncatelist(args):
-    if pyblosxom.VERSION_SPLIT < (2, 0, 0):
+    if pyblosxom.VERSION_SPLIT < (1, 5, 0):
         return
 
     request = args["request"]
     entry_list = args["entry_list"]
 
     page(request, request.config.get("num_entries", 10), entry_list)
-    return request.data["entry_list"]
+    return request.data.get("entry_list", entry_list)
 
 
 ########################################################################
-# This functionality kicks in for pre PyBlosxom 2.0 versions that don't
+# This functionality kicks in for pre PyBlosxom 1.5 versions that don't
 # have the truncatelist callback.  It's very klugy.
 
 def cb_start(args):
-    if pyblosxom.VERSION_SPLIT >= (2, 0, 0):
+    if pyblosxom.VERSION_SPLIT >= (1, 5, 0):
         return
 
     req = args["request"]
@@ -249,7 +250,7 @@ def cb_start(args):
         config["num_entries"] = 0
 
 def cb_prepare(args):
-    if pyblosxom.VERSION_SPLIT >= (2, 0, 0):
+    if pyblosxom.VERSION_SPLIT >= (1, 5, 0):
         return
 
     request = args["request"]
