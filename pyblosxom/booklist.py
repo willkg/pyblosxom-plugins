@@ -209,12 +209,12 @@ class Booklist:
 
         output = []
         for mem in listing:
-            output.append("%s::%s<br /><u>%s</u>, by %s<br /><br />" % 
+            output.append("%s::%s<br><u>%s</u>, by %s<br><br>" % 
                  (mem[START_DATE], mem[COMPLETENESS], mem[NAME], mem[AUTHOR]))
 
         pyhttp = self._request.getHttp()
         config = self._request.getConfiguration()
-        output.append("<a href=\"" + config["base_url"] + TRIGGER + "\">more...</a><br />")
+        output.append("<a href=\"" + config["base_url"] + TRIGGER + "\">more...</a><br>")
         return "\n".join(output)
 
 def cb_prepare(args):
