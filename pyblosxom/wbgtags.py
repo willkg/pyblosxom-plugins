@@ -378,6 +378,7 @@ def cb_story(args):
 
     sep = config.get("tags_separator", ",")
     tags = [t.strip() for t in entry.get("tags", "").split(sep)]
+    tags.sort()
     entry["tags_raw"] = tags
 
     form = request.get_form()
@@ -404,6 +405,7 @@ def cb_head(args):
     tagsdata = data.get("tagsdata", {})
 
     tags = tagsdata.keys()
+    tags.sort()
 
     start_t = config.get("tags_list_start", '<p>')
     item_t = config.get("tags_list_item", ' <a href="%(tagurl)s">%(tag)s</a> ')
