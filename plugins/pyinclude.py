@@ -92,7 +92,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2002, 2003 Will Guaraldi
+Copyright 2002, 2003 Will Kahn-Greene
 
 SUBVERSION VERSION: $Id$
 
@@ -104,9 +104,9 @@ Revisions:
 1.1 - (23 April, 2004) added python script evaluation
 1.0 - initial writing
 """
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Allows you to include text files."
 
 import sys, StringIO, os, os.path

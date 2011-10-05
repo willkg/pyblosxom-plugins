@@ -33,9 +33,9 @@ Revisions:
 1.1 - (May 16, 2004) Fixed a bug when creating Amazon links
 1.0 - (March 31, 2004) created
 """
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Amazon link generator."
 
 AMAZON_STORE = "bluesockorg-20"

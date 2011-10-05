@@ -46,7 +46,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004-2007 Will Guaraldi
+Copyright 2004-2007 Will Kahn-Greene
 
 SUBVERSION VERSION: $Id$
 
@@ -60,9 +60,9 @@ Revisions:
 import os, sys, commands, time, string
 from Pyblosxom.entries import base
 
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Ultra-basic search plugin that uses grep."
 
 TRIGGER = "/search"

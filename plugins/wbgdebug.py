@@ -24,9 +24,9 @@ Revisions:
 1.5 - (26 October, 2005) pulled into new VCS
 1.0 - (26 January 2004) initial writing
 """
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Allows for switching on the debug renderer using debug=yes in the querystring."
 
 import sys

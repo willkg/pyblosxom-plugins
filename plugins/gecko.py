@@ -31,9 +31,9 @@ Revisions:
 1.5 - (26 October, 2005) pulled into new version control system
 1.0 - (08 July, 2004) created
 """
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Displays a notice for people who aren't using Gecko-based browsers."
 
 import os

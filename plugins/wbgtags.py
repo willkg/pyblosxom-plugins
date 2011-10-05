@@ -183,7 +183,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2009 Will Guaraldi Kahn-Greene
+Copyright 2009 Will Kahn-Greene
 
 Revisions:
 1.0 - 2009-06-02 - initial writing
@@ -191,7 +191,7 @@ Revisions:
 
 __author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "1.0"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Tags plugin"
 
 import os

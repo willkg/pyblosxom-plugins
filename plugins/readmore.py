@@ -58,7 +58,7 @@ strings), you can use the following designators:
 * ``%(file_path)s`` - path to the story (without extension)
 
 
-Note from Will Guaraldi (October 25, 2005)
+Note from Will Kahn-Greene (October 25, 2005)
 ==========================================
 
 I'm assuming IWS doesn't care about this anymore so I'm going to "fork"
@@ -86,7 +86,7 @@ Revisions:
       and took over hosting.
 
 Original author:    IWS
-Current maintainer: Will Guaraldi
+Current maintainer: Will Kahn-Greene
 Contributors:
     Todd Warner
     others....
@@ -94,10 +94,10 @@ Contributors:
 License: Python or GNU
 """
 
-__author__ = "maintainer: Will Guaraldi - willg at bluesock dot org"
+__author__ = "maintainer: Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
 __license__ = "python or GNU"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Breaks a long story at B R E A K (no spaces)."
 
 import re

@@ -158,7 +158,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2002-2007 Will Guaraldi
+Copyright 2002-2007 Will Kahn-Greene
 
 SUBVERSION VERSION: $Id$
 
@@ -186,9 +186,9 @@ import os, StringIO, sys, re
 from Pyblosxom.entries.fileentry import FileEntry
 from Pyblosxom import tools
 
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date: 2006-10-01 10:53:20 -0500 (Sun, 01 Oct 2006) $"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Wiki-like functionality for your site"
 
 TRIGGER = "wiki"

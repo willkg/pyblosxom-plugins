@@ -30,16 +30,16 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004 Will Guaraldi
+Copyright 2004 Will Kahn-Greene
 
 Revisions:
 2007-07-07 - updated documentation to reST.
 2005-11-11 - Pulled into new VCS.
 1.0 - (24 April 2004) initial writing
 """
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Caches pages for a day."
 
 import string, StringIO, os, os.path, time, sys

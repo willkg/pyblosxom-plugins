@@ -34,7 +34,7 @@ Miscellaneous notes about this plugin:
 FIXME - probably needs more information in this help portion!
 
 Originally written by Blake Winton.
-Overhauled by Will Guaraldi.
+Overhauled by Will Kahn-Greene.
 
 Just for clarity sake, Blake wrote the majority of the code, but Will is
 going to take responsibility to maintain the code going forward (unless
@@ -64,9 +64,9 @@ Revisions:
 1.1 - (September 12, 2004) Will's overhaul.
 1.0 - Blake's original writing.
 """
-__author__ = "Blake Winton and Will Guaraldi"
+__author__ = "Blake Winton and Will Kahn-Greene"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "RSS2 renderer."
 
 from Pyblosxom.renderers.base import RendererBase

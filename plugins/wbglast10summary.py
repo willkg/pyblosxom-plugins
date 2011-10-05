@@ -16,9 +16,9 @@ This code is placed in the public domain.  Do with it as you will.
 SUBVERSION VERSION: $Id$
 """
 
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Summarizes old posts."
 
 

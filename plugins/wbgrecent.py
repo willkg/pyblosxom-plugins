@@ -38,7 +38,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright 2004-2007 Will Guaraldi
+Copyright 2004-2007 Will Kahn-Greene
 
 SUBVERSION VERSION: $Id$
 
@@ -49,9 +49,9 @@ Revisions:
 1.1 - (09 December, 2004) fixed the timestamp and date_head issues
 1.0 - (31 August, 2004) initial writing
 """
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Summary of recent blog activity."
 
 from Pyblosxom import tools, entries

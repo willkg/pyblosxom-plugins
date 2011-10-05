@@ -47,9 +47,9 @@ Revisions:
 1.1 - overhauled for new plugin system
 1.0 - original code 
 """
-__author__ = "Will Guaraldi - willg at bluesock dot org"
+__author__ = "Will Kahn-Greene - willg at bluesock dot org"
 __version__ = "$Date$"
-__url__ = "http://www.bluesock.org/~willg/pyblosxom/"
+__url__ = "https://github.com/willkg/pyblosxom-plugins"
 __description__ = "Tracks how many times an entry has been viewed."
 
 import pickle, time, os.path
