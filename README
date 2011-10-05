@@ -1,0 +1,15 @@
+========
+ README
+========
+
+This repository holds plugins I've written for PyBlosxom over the
+years.  Some of them are exercises and some of them are ones I use on
+my blog.
+
+.. Note::
+
+   I've just moved this from an svn repository that I was ignoring to
+   a git repository and then pushed it to github.  As such, it's got a
+   lot of bitrot, but hopefully this puts it in a position to get better.
+
+Questions, comments, or concerns: email me at willg at bluesock dot org.
